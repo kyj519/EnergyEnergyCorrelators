@@ -348,6 +348,8 @@ namespace EEC_NAMESPACE {
   %ignore EECBase::operator+=;
   %ignore EECLongestSide::load;
   %ignore EECLongestSide::save;
+  %ignore EECTopMass::load;
+  %ignore EECTopMass::save;
   %ignore EECTriangleOPE::load;
   %ignore EECTriangleOPE::save;
   %rename(_compute) EECBase::compute;
@@ -360,6 +362,7 @@ namespace EEC_NAMESPACE {
 %include "EECMultinomial.hh"
 %include "EECLongestSide.hh"
 %include "EECTriangleOPE.hh"
+%include "EECTopMass.hh"
 
 /*%inline %{
   EEC_NAMESPACE::EECEvent _event_from_pjc(const EEC_NAMESPACE::EECConfig & config,
@@ -526,6 +529,18 @@ namespace EEC_NAMESPACE {
     #endif
   }
 
+  %extend EECTopMass {
+    CPP_EECCOMP_FUNCTIONS(EECTopMass)
+    ADD_REPR_FROM_DECODED_DESCRIPTION
+
+    #ifdef EEC_SERIALIZATION
+      CPP_SERIALIZATION_FUNCTIONS
+      %pythoncode %{
+        _default_args = (2, 1)
+      %}
+    #endif
+  }
+
   // instantiate EEC templates
   %template(set_index_1) Multinomial::py_set_index<1>;
   %template(set_index_2) Multinomial::py_set_index<2>;
@@ -543,5 +558,7 @@ namespace EEC_NAMESPACE {
   %template(EECTriangleOPELogIdId) EECTriangleOPE<axis::log, axis::id, axis::id>;
   %template(EECTriangleOPEIdLogId) EECTriangleOPE<axis::id, axis::log, axis::id>;
   %template(EECTriangleOPELogLogId) EECTriangleOPE<axis::log, axis::log, axis::id>;
+  %template(EECTopMassId) EECTopMass<axis::id>;
+  %template(EECTopMassLog) EECTopMass<axis::log>;
 
 } // namespace EEC_NAMESPACE
