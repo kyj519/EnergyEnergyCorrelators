@@ -31,7 +31,7 @@
 
 // ensure FASTJET_PREFIX is always defined even if not used
 #ifndef FASTJET_PREFIX
-# define FASTJET_PREFIX /usr/local
+# define FASTJET_PREFIX /data6/Users/yeonjoon/micromamba/envs/EEC/lib/python3.8/site-packages/fastjet/_fastjet_core/
 #endif
 
 // import either pyfjcore or fastjet
@@ -43,7 +43,7 @@
 #else
   %import FASTJET_PREFIX/share/fastjet/pyinterface/fastjet.i
   %pythoncode %{
-    from fastjet import FastJetError
+    from fastjet import Error as FastJetError
   %}
 #endif
 
@@ -350,6 +350,8 @@ namespace EEC_NAMESPACE {
   %ignore EECLongestSide::save;
   %ignore EECTriangleOPE::load;
   %ignore EECTriangleOPE::save;
+  %ignore EECTopMass::load;
+  %ignore EECTopMass::save;
   %rename(_compute) EECBase::compute;
   %rename(_push_back) EECBase::push_back;
 
@@ -360,6 +362,7 @@ namespace EEC_NAMESPACE {
 %include "EECMultinomial.hh"
 %include "EECLongestSide.hh"
 %include "EECTriangleOPE.hh"
+%include "EECTopMass.hh"
 
 /*%inline %{
   EEC_NAMESPACE::EECEvent _event_from_pjc(const EEC_NAMESPACE::EECConfig & config,
@@ -526,6 +529,17 @@ namespace EEC_NAMESPACE {
     #endif
   }
 
+  %extend EECTopMass {
+    CPP_EECCOMP_FUNCTIONS(EECTopMass)
+    ADD_REPR_FROM_DECODED_DESCRIPTION
+
+    #ifdef EEC_SERIALIZATION
+      CPP_SERIALIZATION_FUNCTIONS
+      %pythoncode %{
+        _default_args = (2, 1)
+      %}
+    #endif
+  }
   // instantiate EEC templates
   %template(set_index_1) Multinomial::py_set_index<1>;
   %template(set_index_2) Multinomial::py_set_index<2>;
@@ -543,5 +557,7 @@ namespace EEC_NAMESPACE {
   %template(EECTriangleOPELogIdId) EECTriangleOPE<axis::log, axis::id, axis::id>;
   %template(EECTriangleOPEIdLogId) EECTriangleOPE<axis::id, axis::log, axis::id>;
   %template(EECTriangleOPELogLogId) EECTriangleOPE<axis::log, axis::log, axis::id>;
+  %template(EECTopMassId) EECTopMass<axis::id>;
+  %template(EECTopMassLog) EECTopMass<axis::log>;
 
 } // namespace EEC_NAMESPACE
