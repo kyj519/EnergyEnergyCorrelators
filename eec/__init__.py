@@ -72,6 +72,40 @@ def EECLongestSide(N, nbins, axis='log', **kwargs):
     else:
         raise ValueError('axis `{}` not understood'.format(axis))
 
+def EECTopMass(N, nbins, axis='log', **kwargs):
+
+    axis_range = kwargs.pop('axis_range', None)
+    axes_range = kwargs.pop('axes_range', None)
+    if axis_range is not None and axes_range is not None:
+        raise ValueError('`axis_range` and `axes_range` cannot both be given')
+
+    if axes_range is not None:
+        assert len(axes_range) == 1, '`axes_range` must be length 1'
+        kwargs['axis_range'] = axes_range[0]
+
+    if axis_range is not None:
+        assert len(axis_range) == 2, '`axis_range` must be length 2'
+        kwargs['axis_range'] = axis_range
+
+    # validate axis options
+    axes = kwargs.pop('axes', None)
+    if axes is not None:
+        assert 'axis' not in kwargs, '`axis` and `axes` cannot both be given'
+        assert len(axes) == 1, '`axes` must be length 1'
+        axis = axes[0]
+
+    # allow integers for _powers arguments
+    for key in ['weight_powers', 'charge_powers']:
+        if key in kwargs and isinstance(kwargs[key], (int, float)):
+            kwargs[key] = (kwargs[key],)
+
+    if axis.lower() == 'log':
+        return EECTopMassLog(N, nbins, **kwargs)
+    elif axis.lower() == 'id':
+        return EECTopMassId(N, nbins, **kwargs)
+    else:
+        raise ValueError('axis `{}` not understood'.format(axis))
+
 # this accepts `axes` as a tuple/list of three strings and `axes_range`
 # as a tuple/list of 3 pairs of values
 def EECTriangleOPE(nbins,
@@ -102,5 +136,9 @@ def EEC(comp_type, *args, **kwargs):
 
     if comp_type == 'EECTriangleOPE':
         return EECTriangleOPE(*args, **kwargs)
+
+    if comp_type == 'EECTopMass':
+        return EECTopMass(*args, **kwargs)
+    
 
     raise ValueError('invalid comp_type `{}`'.format(comp_type))

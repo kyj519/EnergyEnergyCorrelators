@@ -27,6 +27,7 @@
 
 #include "EECLongestSide.hh"
 #include "EECTriangleOPE.hh"
+#include "EECTopMass.hh"
 
 BEGIN_EEC_NAMESPACE
 
@@ -45,6 +46,12 @@ using EECTriangleOPEIdIdId = EECTriangleOPE<hist::axis::id, hist::axis::id, hist
 using EECTriangleOPELogIdId = EECTriangleOPE<hist::axis::log, hist::axis::id, hist::axis::id>;
 using EECTriangleOPEIdLogId = EECTriangleOPE<hist::axis::id, hist::axis::log, hist::axis::id>;
 using EECTriangleOPELogLogId = EECTriangleOPE<hist::axis::log, hist::axis::log, hist::axis::id>;
+
+//-----------------------------------------------------------------------------
+// EECTopMass aliases
+//-----------------------------------------------------------------------------
+using EECTopMassId = EECTopMass<hist::axis::id>;
+using EECTopMassLog = EECTopMass<hist::axis::log>;
 
 END_EEC_NAMESPACE
 

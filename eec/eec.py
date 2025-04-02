@@ -24,9 +24,6 @@ try:
 except ImportError:
     import __builtin__
 
-_swig_new_instance_method = _eec.SWIG_PyInstanceMethod_New
-_swig_new_static_method = _eec.SWIG_PyStaticMethod_New
-
 def _swig_repr(self):
     try:
         strthis = "proxy of " + self.this.__repr__()
@@ -78,31 +75,82 @@ class SwigPyIterator(object):
         raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_SwigPyIterator
-    value = _swig_new_instance_method(_eec.SwigPyIterator_value)
-    incr = _swig_new_instance_method(_eec.SwigPyIterator_incr)
-    decr = _swig_new_instance_method(_eec.SwigPyIterator_decr)
-    distance = _swig_new_instance_method(_eec.SwigPyIterator_distance)
-    equal = _swig_new_instance_method(_eec.SwigPyIterator_equal)
-    copy = _swig_new_instance_method(_eec.SwigPyIterator_copy)
-    next = _swig_new_instance_method(_eec.SwigPyIterator_next)
-    __next__ = _swig_new_instance_method(_eec.SwigPyIterator___next__)
-    previous = _swig_new_instance_method(_eec.SwigPyIterator_previous)
-    advance = _swig_new_instance_method(_eec.SwigPyIterator_advance)
-    __eq__ = _swig_new_instance_method(_eec.SwigPyIterator___eq__)
-    __ne__ = _swig_new_instance_method(_eec.SwigPyIterator___ne__)
-    __iadd__ = _swig_new_instance_method(_eec.SwigPyIterator___iadd__)
-    __isub__ = _swig_new_instance_method(_eec.SwigPyIterator___isub__)
-    __add__ = _swig_new_instance_method(_eec.SwigPyIterator___add__)
-    __sub__ = _swig_new_instance_method(_eec.SwigPyIterator___sub__)
+
+    def value(self):
+        r"""value(SwigPyIterator self) -> PyObject *"""
+        return _eec.SwigPyIterator_value(self)
+
+    def incr(self, n=1):
+        r"""incr(SwigPyIterator self, size_t n=1) -> SwigPyIterator"""
+        return _eec.SwigPyIterator_incr(self, n)
+
+    def decr(self, n=1):
+        r"""decr(SwigPyIterator self, size_t n=1) -> SwigPyIterator"""
+        return _eec.SwigPyIterator_decr(self, n)
+
+    def distance(self, x):
+        r"""distance(SwigPyIterator self, SwigPyIterator x) -> ptrdiff_t"""
+        return _eec.SwigPyIterator_distance(self, x)
+
+    def equal(self, x):
+        r"""equal(SwigPyIterator self, SwigPyIterator x) -> bool"""
+        return _eec.SwigPyIterator_equal(self, x)
+
+    def copy(self):
+        r"""copy(SwigPyIterator self) -> SwigPyIterator"""
+        return _eec.SwigPyIterator_copy(self)
+
+    def next(self):
+        r"""next(SwigPyIterator self) -> PyObject *"""
+        return _eec.SwigPyIterator_next(self)
+
+    def __next__(self):
+        r"""__next__(SwigPyIterator self) -> PyObject *"""
+        return _eec.SwigPyIterator___next__(self)
+
+    def previous(self):
+        r"""previous(SwigPyIterator self) -> PyObject *"""
+        return _eec.SwigPyIterator_previous(self)
+
+    def advance(self, n):
+        r"""advance(SwigPyIterator self, ptrdiff_t n) -> SwigPyIterator"""
+        return _eec.SwigPyIterator_advance(self, n)
+
+    def __eq__(self, x):
+        r"""__eq__(SwigPyIterator self, SwigPyIterator x) -> bool"""
+        return _eec.SwigPyIterator___eq__(self, x)
+
+    def __ne__(self, x):
+        r"""__ne__(SwigPyIterator self, SwigPyIterator x) -> bool"""
+        return _eec.SwigPyIterator___ne__(self, x)
+
+    def __iadd__(self, n):
+        r"""__iadd__(SwigPyIterator self, ptrdiff_t n) -> SwigPyIterator"""
+        return _eec.SwigPyIterator___iadd__(self, n)
+
+    def __isub__(self, n):
+        r"""__isub__(SwigPyIterator self, ptrdiff_t n) -> SwigPyIterator"""
+        return _eec.SwigPyIterator___isub__(self, n)
+
+    def __add__(self, n):
+        r"""__add__(SwigPyIterator self, ptrdiff_t n) -> SwigPyIterator"""
+        return _eec.SwigPyIterator___add__(self, n)
+
+    def __sub__(self, *args):
+        r"""
+        __sub__(SwigPyIterator self, ptrdiff_t n) -> SwigPyIterator
+        __sub__(SwigPyIterator self, SwigPyIterator x) -> ptrdiff_t
+        """
+        return _eec.SwigPyIterator___sub__(self, *args)
     def __iter__(self):
         return self
 
 # Register SwigPyIterator in _eec:
 _eec.SwigPyIterator_swigregister(SwigPyIterator)
 
-import pyfjcore
+import fastjet
 
-from pyfjcore import FastJetError
+from fastjet import Error as FastJetError
 
 
 import numpy as _np
@@ -112,18 +160,61 @@ class arrayDouble2(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.arrayDouble2_iterator)
+
+    def iterator(self):
+        r"""iterator(arrayDouble2 self) -> SwigPyIterator"""
+        return _eec.arrayDouble2_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.arrayDouble2___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.arrayDouble2___bool__)
-    __len__ = _swig_new_instance_method(_eec.arrayDouble2___len__)
-    __getslice__ = _swig_new_instance_method(_eec.arrayDouble2___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.arrayDouble2___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.arrayDouble2___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.arrayDouble2___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.arrayDouble2___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.arrayDouble2___setitem__)
+
+    def __nonzero__(self):
+        r"""__nonzero__(arrayDouble2 self) -> bool"""
+        return _eec.arrayDouble2___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(arrayDouble2 self) -> bool"""
+        return _eec.arrayDouble2___bool__(self)
+
+    def __len__(self):
+        r"""__len__(arrayDouble2 self) -> std::array< double,2 >::size_type"""
+        return _eec.arrayDouble2___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(arrayDouble2 self, std::array< double,2 >::difference_type i, std::array< double,2 >::difference_type j) -> arrayDouble2"""
+        return _eec.arrayDouble2___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(arrayDouble2 self, std::array< double,2 >::difference_type i, std::array< double,2 >::difference_type j)
+        __setslice__(arrayDouble2 self, std::array< double,2 >::difference_type i, std::array< double,2 >::difference_type j, arrayDouble2 v)
+        """
+        return _eec.arrayDouble2___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(arrayDouble2 self, std::array< double,2 >::difference_type i, std::array< double,2 >::difference_type j)"""
+        return _eec.arrayDouble2___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(arrayDouble2 self, std::array< double,2 >::difference_type i)
+        __delitem__(arrayDouble2 self, PySliceObject * slice)
+        """
+        return _eec.arrayDouble2___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(arrayDouble2 self, PySliceObject * slice) -> arrayDouble2
+        __getitem__(arrayDouble2 self, std::array< double,2 >::difference_type i) -> std::array< double,2 >::value_type const &
+        """
+        return _eec.arrayDouble2___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(arrayDouble2 self, PySliceObject * slice, arrayDouble2 v)
+        __setitem__(arrayDouble2 self, PySliceObject * slice)
+        __setitem__(arrayDouble2 self, std::array< double,2 >::difference_type i, std::array< double,2 >::value_type const & x)
+        """
+        return _eec.arrayDouble2___setitem__(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -131,16 +222,46 @@ class arrayDouble2(object):
         __init__(arrayDouble2 self, arrayDouble2 other) -> arrayDouble2
         """
         _eec.arrayDouble2_swiginit(self, _eec.new_arrayDouble2(*args))
-    empty = _swig_new_instance_method(_eec.arrayDouble2_empty)
-    size = _swig_new_instance_method(_eec.arrayDouble2_size)
-    swap = _swig_new_instance_method(_eec.arrayDouble2_swap)
-    begin = _swig_new_instance_method(_eec.arrayDouble2_begin)
-    end = _swig_new_instance_method(_eec.arrayDouble2_end)
-    rbegin = _swig_new_instance_method(_eec.arrayDouble2_rbegin)
-    rend = _swig_new_instance_method(_eec.arrayDouble2_rend)
-    front = _swig_new_instance_method(_eec.arrayDouble2_front)
-    back = _swig_new_instance_method(_eec.arrayDouble2_back)
-    fill = _swig_new_instance_method(_eec.arrayDouble2_fill)
+
+    def empty(self):
+        r"""empty(arrayDouble2 self) -> bool"""
+        return _eec.arrayDouble2_empty(self)
+
+    def size(self):
+        r"""size(arrayDouble2 self) -> std::array< double,2 >::size_type"""
+        return _eec.arrayDouble2_size(self)
+
+    def swap(self, v):
+        r"""swap(arrayDouble2 self, arrayDouble2 v)"""
+        return _eec.arrayDouble2_swap(self, v)
+
+    def begin(self):
+        r"""begin(arrayDouble2 self) -> std::array< double,2 >::iterator"""
+        return _eec.arrayDouble2_begin(self)
+
+    def end(self):
+        r"""end(arrayDouble2 self) -> std::array< double,2 >::iterator"""
+        return _eec.arrayDouble2_end(self)
+
+    def rbegin(self):
+        r"""rbegin(arrayDouble2 self) -> std::array< double,2 >::reverse_iterator"""
+        return _eec.arrayDouble2_rbegin(self)
+
+    def rend(self):
+        r"""rend(arrayDouble2 self) -> std::array< double,2 >::reverse_iterator"""
+        return _eec.arrayDouble2_rend(self)
+
+    def front(self):
+        r"""front(arrayDouble2 self) -> std::array< double,2 >::value_type const &"""
+        return _eec.arrayDouble2_front(self)
+
+    def back(self):
+        r"""back(arrayDouble2 self) -> std::array< double,2 >::value_type const &"""
+        return _eec.arrayDouble2_back(self)
+
+    def fill(self, u):
+        r"""fill(arrayDouble2 self, std::array< double,2 >::value_type const & u)"""
+        return _eec.arrayDouble2_fill(self, u)
     __swig_destroy__ = _eec.delete_arrayDouble2
 
 # Register arrayDouble2 in _eec:
@@ -151,18 +272,61 @@ class arrayUnsigned3(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.arrayUnsigned3_iterator)
+
+    def iterator(self):
+        r"""iterator(arrayUnsigned3 self) -> SwigPyIterator"""
+        return _eec.arrayUnsigned3_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.arrayUnsigned3___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.arrayUnsigned3___bool__)
-    __len__ = _swig_new_instance_method(_eec.arrayUnsigned3___len__)
-    __getslice__ = _swig_new_instance_method(_eec.arrayUnsigned3___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.arrayUnsigned3___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.arrayUnsigned3___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.arrayUnsigned3___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.arrayUnsigned3___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.arrayUnsigned3___setitem__)
+
+    def __nonzero__(self):
+        r"""__nonzero__(arrayUnsigned3 self) -> bool"""
+        return _eec.arrayUnsigned3___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(arrayUnsigned3 self) -> bool"""
+        return _eec.arrayUnsigned3___bool__(self)
+
+    def __len__(self):
+        r"""__len__(arrayUnsigned3 self) -> std::array< unsigned int,3 >::size_type"""
+        return _eec.arrayUnsigned3___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i, std::array< unsigned int,3 >::difference_type j) -> arrayUnsigned3"""
+        return _eec.arrayUnsigned3___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i, std::array< unsigned int,3 >::difference_type j)
+        __setslice__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i, std::array< unsigned int,3 >::difference_type j, arrayUnsigned3 v)
+        """
+        return _eec.arrayUnsigned3___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i, std::array< unsigned int,3 >::difference_type j)"""
+        return _eec.arrayUnsigned3___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i)
+        __delitem__(arrayUnsigned3 self, PySliceObject * slice)
+        """
+        return _eec.arrayUnsigned3___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(arrayUnsigned3 self, PySliceObject * slice) -> arrayUnsigned3
+        __getitem__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i) -> std::array< unsigned int,3 >::value_type const &
+        """
+        return _eec.arrayUnsigned3___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(arrayUnsigned3 self, PySliceObject * slice, arrayUnsigned3 v)
+        __setitem__(arrayUnsigned3 self, PySliceObject * slice)
+        __setitem__(arrayUnsigned3 self, std::array< unsigned int,3 >::difference_type i, std::array< unsigned int,3 >::value_type const & x)
+        """
+        return _eec.arrayUnsigned3___setitem__(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -170,16 +334,46 @@ class arrayUnsigned3(object):
         __init__(arrayUnsigned3 self, arrayUnsigned3 other) -> arrayUnsigned3
         """
         _eec.arrayUnsigned3_swiginit(self, _eec.new_arrayUnsigned3(*args))
-    empty = _swig_new_instance_method(_eec.arrayUnsigned3_empty)
-    size = _swig_new_instance_method(_eec.arrayUnsigned3_size)
-    swap = _swig_new_instance_method(_eec.arrayUnsigned3_swap)
-    begin = _swig_new_instance_method(_eec.arrayUnsigned3_begin)
-    end = _swig_new_instance_method(_eec.arrayUnsigned3_end)
-    rbegin = _swig_new_instance_method(_eec.arrayUnsigned3_rbegin)
-    rend = _swig_new_instance_method(_eec.arrayUnsigned3_rend)
-    front = _swig_new_instance_method(_eec.arrayUnsigned3_front)
-    back = _swig_new_instance_method(_eec.arrayUnsigned3_back)
-    fill = _swig_new_instance_method(_eec.arrayUnsigned3_fill)
+
+    def empty(self):
+        r"""empty(arrayUnsigned3 self) -> bool"""
+        return _eec.arrayUnsigned3_empty(self)
+
+    def size(self):
+        r"""size(arrayUnsigned3 self) -> std::array< unsigned int,3 >::size_type"""
+        return _eec.arrayUnsigned3_size(self)
+
+    def swap(self, v):
+        r"""swap(arrayUnsigned3 self, arrayUnsigned3 v)"""
+        return _eec.arrayUnsigned3_swap(self, v)
+
+    def begin(self):
+        r"""begin(arrayUnsigned3 self) -> std::array< unsigned int,3 >::iterator"""
+        return _eec.arrayUnsigned3_begin(self)
+
+    def end(self):
+        r"""end(arrayUnsigned3 self) -> std::array< unsigned int,3 >::iterator"""
+        return _eec.arrayUnsigned3_end(self)
+
+    def rbegin(self):
+        r"""rbegin(arrayUnsigned3 self) -> std::array< unsigned int,3 >::reverse_iterator"""
+        return _eec.arrayUnsigned3_rbegin(self)
+
+    def rend(self):
+        r"""rend(arrayUnsigned3 self) -> std::array< unsigned int,3 >::reverse_iterator"""
+        return _eec.arrayUnsigned3_rend(self)
+
+    def front(self):
+        r"""front(arrayUnsigned3 self) -> std::array< unsigned int,3 >::value_type const &"""
+        return _eec.arrayUnsigned3_front(self)
+
+    def back(self):
+        r"""back(arrayUnsigned3 self) -> std::array< unsigned int,3 >::value_type const &"""
+        return _eec.arrayUnsigned3_back(self)
+
+    def fill(self, u):
+        r"""fill(arrayUnsigned3 self, std::array< unsigned int,3 >::value_type const & u)"""
+        return _eec.arrayUnsigned3_fill(self, u)
     __swig_destroy__ = _eec.delete_arrayUnsigned3
 
 # Register arrayUnsigned3 in _eec:
@@ -190,18 +384,61 @@ class arrayUnsigned13(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.arrayUnsigned13_iterator)
+
+    def iterator(self):
+        r"""iterator(arrayUnsigned13 self) -> SwigPyIterator"""
+        return _eec.arrayUnsigned13_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.arrayUnsigned13___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.arrayUnsigned13___bool__)
-    __len__ = _swig_new_instance_method(_eec.arrayUnsigned13___len__)
-    __getslice__ = _swig_new_instance_method(_eec.arrayUnsigned13___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.arrayUnsigned13___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.arrayUnsigned13___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.arrayUnsigned13___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.arrayUnsigned13___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.arrayUnsigned13___setitem__)
+
+    def __nonzero__(self):
+        r"""__nonzero__(arrayUnsigned13 self) -> bool"""
+        return _eec.arrayUnsigned13___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(arrayUnsigned13 self) -> bool"""
+        return _eec.arrayUnsigned13___bool__(self)
+
+    def __len__(self):
+        r"""__len__(arrayUnsigned13 self) -> std::array< unsigned int,13 >::size_type"""
+        return _eec.arrayUnsigned13___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i, std::array< unsigned int,13 >::difference_type j) -> arrayUnsigned13"""
+        return _eec.arrayUnsigned13___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i, std::array< unsigned int,13 >::difference_type j)
+        __setslice__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i, std::array< unsigned int,13 >::difference_type j, arrayUnsigned13 v)
+        """
+        return _eec.arrayUnsigned13___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i, std::array< unsigned int,13 >::difference_type j)"""
+        return _eec.arrayUnsigned13___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i)
+        __delitem__(arrayUnsigned13 self, PySliceObject * slice)
+        """
+        return _eec.arrayUnsigned13___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(arrayUnsigned13 self, PySliceObject * slice) -> arrayUnsigned13
+        __getitem__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i) -> std::array< unsigned int,13 >::value_type const &
+        """
+        return _eec.arrayUnsigned13___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(arrayUnsigned13 self, PySliceObject * slice, arrayUnsigned13 v)
+        __setitem__(arrayUnsigned13 self, PySliceObject * slice)
+        __setitem__(arrayUnsigned13 self, std::array< unsigned int,13 >::difference_type i, std::array< unsigned int,13 >::value_type const & x)
+        """
+        return _eec.arrayUnsigned13___setitem__(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -209,16 +446,46 @@ class arrayUnsigned13(object):
         __init__(arrayUnsigned13 self, arrayUnsigned13 other) -> arrayUnsigned13
         """
         _eec.arrayUnsigned13_swiginit(self, _eec.new_arrayUnsigned13(*args))
-    empty = _swig_new_instance_method(_eec.arrayUnsigned13_empty)
-    size = _swig_new_instance_method(_eec.arrayUnsigned13_size)
-    swap = _swig_new_instance_method(_eec.arrayUnsigned13_swap)
-    begin = _swig_new_instance_method(_eec.arrayUnsigned13_begin)
-    end = _swig_new_instance_method(_eec.arrayUnsigned13_end)
-    rbegin = _swig_new_instance_method(_eec.arrayUnsigned13_rbegin)
-    rend = _swig_new_instance_method(_eec.arrayUnsigned13_rend)
-    front = _swig_new_instance_method(_eec.arrayUnsigned13_front)
-    back = _swig_new_instance_method(_eec.arrayUnsigned13_back)
-    fill = _swig_new_instance_method(_eec.arrayUnsigned13_fill)
+
+    def empty(self):
+        r"""empty(arrayUnsigned13 self) -> bool"""
+        return _eec.arrayUnsigned13_empty(self)
+
+    def size(self):
+        r"""size(arrayUnsigned13 self) -> std::array< unsigned int,13 >::size_type"""
+        return _eec.arrayUnsigned13_size(self)
+
+    def swap(self, v):
+        r"""swap(arrayUnsigned13 self, arrayUnsigned13 v)"""
+        return _eec.arrayUnsigned13_swap(self, v)
+
+    def begin(self):
+        r"""begin(arrayUnsigned13 self) -> std::array< unsigned int,13 >::iterator"""
+        return _eec.arrayUnsigned13_begin(self)
+
+    def end(self):
+        r"""end(arrayUnsigned13 self) -> std::array< unsigned int,13 >::iterator"""
+        return _eec.arrayUnsigned13_end(self)
+
+    def rbegin(self):
+        r"""rbegin(arrayUnsigned13 self) -> std::array< unsigned int,13 >::reverse_iterator"""
+        return _eec.arrayUnsigned13_rbegin(self)
+
+    def rend(self):
+        r"""rend(arrayUnsigned13 self) -> std::array< unsigned int,13 >::reverse_iterator"""
+        return _eec.arrayUnsigned13_rend(self)
+
+    def front(self):
+        r"""front(arrayUnsigned13 self) -> std::array< unsigned int,13 >::value_type const &"""
+        return _eec.arrayUnsigned13_front(self)
+
+    def back(self):
+        r"""back(arrayUnsigned13 self) -> std::array< unsigned int,13 >::value_type const &"""
+        return _eec.arrayUnsigned13_back(self)
+
+    def fill(self, u):
+        r"""fill(arrayUnsigned13 self, std::array< unsigned int,13 >::value_type const & u)"""
+        return _eec.arrayUnsigned13_fill(self, u)
     __swig_destroy__ = _eec.delete_arrayUnsigned13
 
 # Register arrayUnsigned13 in _eec:
@@ -229,18 +496,61 @@ class arrayPairDoubleDouble(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.arrayPairDoubleDouble_iterator)
+
+    def iterator(self):
+        r"""iterator(arrayPairDoubleDouble self) -> SwigPyIterator"""
+        return _eec.arrayPairDoubleDouble_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___bool__)
-    __len__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___len__)
-    __getslice__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.arrayPairDoubleDouble___setitem__)
+
+    def __nonzero__(self):
+        r"""__nonzero__(arrayPairDoubleDouble self) -> bool"""
+        return _eec.arrayPairDoubleDouble___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(arrayPairDoubleDouble self) -> bool"""
+        return _eec.arrayPairDoubleDouble___bool__(self)
+
+    def __len__(self):
+        r"""__len__(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::size_type"""
+        return _eec.arrayPairDoubleDouble___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i, std::array< std::array< double,2 >,3 >::difference_type j) -> arrayPairDoubleDouble"""
+        return _eec.arrayPairDoubleDouble___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i, std::array< std::array< double,2 >,3 >::difference_type j)
+        __setslice__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i, std::array< std::array< double,2 >,3 >::difference_type j, arrayPairDoubleDouble v)
+        """
+        return _eec.arrayPairDoubleDouble___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i, std::array< std::array< double,2 >,3 >::difference_type j)"""
+        return _eec.arrayPairDoubleDouble___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i)
+        __delitem__(arrayPairDoubleDouble self, PySliceObject * slice)
+        """
+        return _eec.arrayPairDoubleDouble___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(arrayPairDoubleDouble self, PySliceObject * slice) -> arrayPairDoubleDouble
+        __getitem__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i) -> arrayDouble2
+        """
+        return _eec.arrayPairDoubleDouble___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(arrayPairDoubleDouble self, PySliceObject * slice, arrayPairDoubleDouble v)
+        __setitem__(arrayPairDoubleDouble self, PySliceObject * slice)
+        __setitem__(arrayPairDoubleDouble self, std::array< std::array< double,2 >,3 >::difference_type i, arrayDouble2 x)
+        """
+        return _eec.arrayPairDoubleDouble___setitem__(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -248,16 +558,46 @@ class arrayPairDoubleDouble(object):
         __init__(arrayPairDoubleDouble self, arrayPairDoubleDouble other) -> arrayPairDoubleDouble
         """
         _eec.arrayPairDoubleDouble_swiginit(self, _eec.new_arrayPairDoubleDouble(*args))
-    empty = _swig_new_instance_method(_eec.arrayPairDoubleDouble_empty)
-    size = _swig_new_instance_method(_eec.arrayPairDoubleDouble_size)
-    swap = _swig_new_instance_method(_eec.arrayPairDoubleDouble_swap)
-    begin = _swig_new_instance_method(_eec.arrayPairDoubleDouble_begin)
-    end = _swig_new_instance_method(_eec.arrayPairDoubleDouble_end)
-    rbegin = _swig_new_instance_method(_eec.arrayPairDoubleDouble_rbegin)
-    rend = _swig_new_instance_method(_eec.arrayPairDoubleDouble_rend)
-    front = _swig_new_instance_method(_eec.arrayPairDoubleDouble_front)
-    back = _swig_new_instance_method(_eec.arrayPairDoubleDouble_back)
-    fill = _swig_new_instance_method(_eec.arrayPairDoubleDouble_fill)
+
+    def empty(self):
+        r"""empty(arrayPairDoubleDouble self) -> bool"""
+        return _eec.arrayPairDoubleDouble_empty(self)
+
+    def size(self):
+        r"""size(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::size_type"""
+        return _eec.arrayPairDoubleDouble_size(self)
+
+    def swap(self, v):
+        r"""swap(arrayPairDoubleDouble self, arrayPairDoubleDouble v)"""
+        return _eec.arrayPairDoubleDouble_swap(self, v)
+
+    def begin(self):
+        r"""begin(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::iterator"""
+        return _eec.arrayPairDoubleDouble_begin(self)
+
+    def end(self):
+        r"""end(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::iterator"""
+        return _eec.arrayPairDoubleDouble_end(self)
+
+    def rbegin(self):
+        r"""rbegin(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::reverse_iterator"""
+        return _eec.arrayPairDoubleDouble_rbegin(self)
+
+    def rend(self):
+        r"""rend(arrayPairDoubleDouble self) -> std::array< std::array< double,2 >,3 >::reverse_iterator"""
+        return _eec.arrayPairDoubleDouble_rend(self)
+
+    def front(self):
+        r"""front(arrayPairDoubleDouble self) -> arrayDouble2"""
+        return _eec.arrayPairDoubleDouble_front(self)
+
+    def back(self):
+        r"""back(arrayPairDoubleDouble self) -> arrayDouble2"""
+        return _eec.arrayPairDoubleDouble_back(self)
+
+    def fill(self, u):
+        r"""fill(arrayPairDoubleDouble self, arrayDouble2 u)"""
+        return _eec.arrayPairDoubleDouble_fill(self, u)
     __swig_destroy__ = _eec.delete_arrayPairDoubleDouble
 
 # Register arrayPairDoubleDouble in _eec:
@@ -268,31 +608,116 @@ class vectorDouble(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.vectorDouble_iterator)
+
+    def iterator(self):
+        r"""iterator(vectorDouble self) -> SwigPyIterator"""
+        return _eec.vectorDouble_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.vectorDouble___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.vectorDouble___bool__)
-    __len__ = _swig_new_instance_method(_eec.vectorDouble___len__)
-    __getslice__ = _swig_new_instance_method(_eec.vectorDouble___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.vectorDouble___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.vectorDouble___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.vectorDouble___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.vectorDouble___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.vectorDouble___setitem__)
-    pop = _swig_new_instance_method(_eec.vectorDouble_pop)
-    append = _swig_new_instance_method(_eec.vectorDouble_append)
-    empty = _swig_new_instance_method(_eec.vectorDouble_empty)
-    size = _swig_new_instance_method(_eec.vectorDouble_size)
-    swap = _swig_new_instance_method(_eec.vectorDouble_swap)
-    begin = _swig_new_instance_method(_eec.vectorDouble_begin)
-    end = _swig_new_instance_method(_eec.vectorDouble_end)
-    rbegin = _swig_new_instance_method(_eec.vectorDouble_rbegin)
-    rend = _swig_new_instance_method(_eec.vectorDouble_rend)
-    clear = _swig_new_instance_method(_eec.vectorDouble_clear)
-    get_allocator = _swig_new_instance_method(_eec.vectorDouble_get_allocator)
-    pop_back = _swig_new_instance_method(_eec.vectorDouble_pop_back)
-    erase = _swig_new_instance_method(_eec.vectorDouble_erase)
+
+    def __nonzero__(self):
+        r"""__nonzero__(vectorDouble self) -> bool"""
+        return _eec.vectorDouble___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(vectorDouble self) -> bool"""
+        return _eec.vectorDouble___bool__(self)
+
+    def __len__(self):
+        r"""__len__(vectorDouble self) -> std::vector< double >::size_type"""
+        return _eec.vectorDouble___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(vectorDouble self, std::vector< double >::difference_type i, std::vector< double >::difference_type j) -> vectorDouble"""
+        return _eec.vectorDouble___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(vectorDouble self, std::vector< double >::difference_type i, std::vector< double >::difference_type j)
+        __setslice__(vectorDouble self, std::vector< double >::difference_type i, std::vector< double >::difference_type j, vectorDouble v)
+        """
+        return _eec.vectorDouble___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(vectorDouble self, std::vector< double >::difference_type i, std::vector< double >::difference_type j)"""
+        return _eec.vectorDouble___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(vectorDouble self, std::vector< double >::difference_type i)
+        __delitem__(vectorDouble self, PySliceObject * slice)
+        """
+        return _eec.vectorDouble___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(vectorDouble self, PySliceObject * slice) -> vectorDouble
+        __getitem__(vectorDouble self, std::vector< double >::difference_type i) -> std::vector< double >::value_type const &
+        """
+        return _eec.vectorDouble___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(vectorDouble self, PySliceObject * slice, vectorDouble v)
+        __setitem__(vectorDouble self, PySliceObject * slice)
+        __setitem__(vectorDouble self, std::vector< double >::difference_type i, std::vector< double >::value_type const & x)
+        """
+        return _eec.vectorDouble___setitem__(self, *args)
+
+    def pop(self):
+        r"""pop(vectorDouble self) -> std::vector< double >::value_type"""
+        return _eec.vectorDouble_pop(self)
+
+    def append(self, x):
+        r"""append(vectorDouble self, std::vector< double >::value_type const & x)"""
+        return _eec.vectorDouble_append(self, x)
+
+    def empty(self):
+        r"""empty(vectorDouble self) -> bool"""
+        return _eec.vectorDouble_empty(self)
+
+    def size(self):
+        r"""size(vectorDouble self) -> std::vector< double >::size_type"""
+        return _eec.vectorDouble_size(self)
+
+    def swap(self, v):
+        r"""swap(vectorDouble self, vectorDouble v)"""
+        return _eec.vectorDouble_swap(self, v)
+
+    def begin(self):
+        r"""begin(vectorDouble self) -> std::vector< double >::iterator"""
+        return _eec.vectorDouble_begin(self)
+
+    def end(self):
+        r"""end(vectorDouble self) -> std::vector< double >::iterator"""
+        return _eec.vectorDouble_end(self)
+
+    def rbegin(self):
+        r"""rbegin(vectorDouble self) -> std::vector< double >::reverse_iterator"""
+        return _eec.vectorDouble_rbegin(self)
+
+    def rend(self):
+        r"""rend(vectorDouble self) -> std::vector< double >::reverse_iterator"""
+        return _eec.vectorDouble_rend(self)
+
+    def clear(self):
+        r"""clear(vectorDouble self)"""
+        return _eec.vectorDouble_clear(self)
+
+    def get_allocator(self):
+        r"""get_allocator(vectorDouble self) -> std::vector< double >::allocator_type"""
+        return _eec.vectorDouble_get_allocator(self)
+
+    def pop_back(self):
+        r"""pop_back(vectorDouble self)"""
+        return _eec.vectorDouble_pop_back(self)
+
+    def erase(self, *args):
+        r"""
+        erase(vectorDouble self, std::vector< double >::iterator pos) -> std::vector< double >::iterator
+        erase(vectorDouble self, std::vector< double >::iterator first, std::vector< double >::iterator last) -> std::vector< double >::iterator
+        """
+        return _eec.vectorDouble_erase(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -302,14 +727,44 @@ class vectorDouble(object):
         __init__(vectorDouble self, std::vector< double >::size_type size, std::vector< double >::value_type const & value) -> vectorDouble
         """
         _eec.vectorDouble_swiginit(self, _eec.new_vectorDouble(*args))
-    push_back = _swig_new_instance_method(_eec.vectorDouble_push_back)
-    front = _swig_new_instance_method(_eec.vectorDouble_front)
-    back = _swig_new_instance_method(_eec.vectorDouble_back)
-    assign = _swig_new_instance_method(_eec.vectorDouble_assign)
-    resize = _swig_new_instance_method(_eec.vectorDouble_resize)
-    insert = _swig_new_instance_method(_eec.vectorDouble_insert)
-    reserve = _swig_new_instance_method(_eec.vectorDouble_reserve)
-    capacity = _swig_new_instance_method(_eec.vectorDouble_capacity)
+
+    def push_back(self, x):
+        r"""push_back(vectorDouble self, std::vector< double >::value_type const & x)"""
+        return _eec.vectorDouble_push_back(self, x)
+
+    def front(self):
+        r"""front(vectorDouble self) -> std::vector< double >::value_type const &"""
+        return _eec.vectorDouble_front(self)
+
+    def back(self):
+        r"""back(vectorDouble self) -> std::vector< double >::value_type const &"""
+        return _eec.vectorDouble_back(self)
+
+    def assign(self, n, x):
+        r"""assign(vectorDouble self, std::vector< double >::size_type n, std::vector< double >::value_type const & x)"""
+        return _eec.vectorDouble_assign(self, n, x)
+
+    def resize(self, *args):
+        r"""
+        resize(vectorDouble self, std::vector< double >::size_type new_size)
+        resize(vectorDouble self, std::vector< double >::size_type new_size, std::vector< double >::value_type const & x)
+        """
+        return _eec.vectorDouble_resize(self, *args)
+
+    def insert(self, *args):
+        r"""
+        insert(vectorDouble self, std::vector< double >::iterator pos, std::vector< double >::value_type const & x) -> std::vector< double >::iterator
+        insert(vectorDouble self, std::vector< double >::iterator pos, std::vector< double >::size_type n, std::vector< double >::value_type const & x)
+        """
+        return _eec.vectorDouble_insert(self, *args)
+
+    def reserve(self, n):
+        r"""reserve(vectorDouble self, std::vector< double >::size_type n)"""
+        return _eec.vectorDouble_reserve(self, n)
+
+    def capacity(self):
+        r"""capacity(vectorDouble self) -> std::vector< double >::size_type"""
+        return _eec.vectorDouble_capacity(self)
     __swig_destroy__ = _eec.delete_vectorDouble
 
 # Register vectorDouble in _eec:
@@ -320,31 +775,116 @@ class vectorUnsigned(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.vectorUnsigned_iterator)
+
+    def iterator(self):
+        r"""iterator(vectorUnsigned self) -> SwigPyIterator"""
+        return _eec.vectorUnsigned_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.vectorUnsigned___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.vectorUnsigned___bool__)
-    __len__ = _swig_new_instance_method(_eec.vectorUnsigned___len__)
-    __getslice__ = _swig_new_instance_method(_eec.vectorUnsigned___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.vectorUnsigned___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.vectorUnsigned___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.vectorUnsigned___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.vectorUnsigned___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.vectorUnsigned___setitem__)
-    pop = _swig_new_instance_method(_eec.vectorUnsigned_pop)
-    append = _swig_new_instance_method(_eec.vectorUnsigned_append)
-    empty = _swig_new_instance_method(_eec.vectorUnsigned_empty)
-    size = _swig_new_instance_method(_eec.vectorUnsigned_size)
-    swap = _swig_new_instance_method(_eec.vectorUnsigned_swap)
-    begin = _swig_new_instance_method(_eec.vectorUnsigned_begin)
-    end = _swig_new_instance_method(_eec.vectorUnsigned_end)
-    rbegin = _swig_new_instance_method(_eec.vectorUnsigned_rbegin)
-    rend = _swig_new_instance_method(_eec.vectorUnsigned_rend)
-    clear = _swig_new_instance_method(_eec.vectorUnsigned_clear)
-    get_allocator = _swig_new_instance_method(_eec.vectorUnsigned_get_allocator)
-    pop_back = _swig_new_instance_method(_eec.vectorUnsigned_pop_back)
-    erase = _swig_new_instance_method(_eec.vectorUnsigned_erase)
+
+    def __nonzero__(self):
+        r"""__nonzero__(vectorUnsigned self) -> bool"""
+        return _eec.vectorUnsigned___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(vectorUnsigned self) -> bool"""
+        return _eec.vectorUnsigned___bool__(self)
+
+    def __len__(self):
+        r"""__len__(vectorUnsigned self) -> std::vector< unsigned int >::size_type"""
+        return _eec.vectorUnsigned___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(vectorUnsigned self, std::vector< unsigned int >::difference_type i, std::vector< unsigned int >::difference_type j) -> vectorUnsigned"""
+        return _eec.vectorUnsigned___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(vectorUnsigned self, std::vector< unsigned int >::difference_type i, std::vector< unsigned int >::difference_type j)
+        __setslice__(vectorUnsigned self, std::vector< unsigned int >::difference_type i, std::vector< unsigned int >::difference_type j, vectorUnsigned v)
+        """
+        return _eec.vectorUnsigned___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(vectorUnsigned self, std::vector< unsigned int >::difference_type i, std::vector< unsigned int >::difference_type j)"""
+        return _eec.vectorUnsigned___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(vectorUnsigned self, std::vector< unsigned int >::difference_type i)
+        __delitem__(vectorUnsigned self, PySliceObject * slice)
+        """
+        return _eec.vectorUnsigned___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(vectorUnsigned self, PySliceObject * slice) -> vectorUnsigned
+        __getitem__(vectorUnsigned self, std::vector< unsigned int >::difference_type i) -> std::vector< unsigned int >::value_type const &
+        """
+        return _eec.vectorUnsigned___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(vectorUnsigned self, PySliceObject * slice, vectorUnsigned v)
+        __setitem__(vectorUnsigned self, PySliceObject * slice)
+        __setitem__(vectorUnsigned self, std::vector< unsigned int >::difference_type i, std::vector< unsigned int >::value_type const & x)
+        """
+        return _eec.vectorUnsigned___setitem__(self, *args)
+
+    def pop(self):
+        r"""pop(vectorUnsigned self) -> std::vector< unsigned int >::value_type"""
+        return _eec.vectorUnsigned_pop(self)
+
+    def append(self, x):
+        r"""append(vectorUnsigned self, std::vector< unsigned int >::value_type const & x)"""
+        return _eec.vectorUnsigned_append(self, x)
+
+    def empty(self):
+        r"""empty(vectorUnsigned self) -> bool"""
+        return _eec.vectorUnsigned_empty(self)
+
+    def size(self):
+        r"""size(vectorUnsigned self) -> std::vector< unsigned int >::size_type"""
+        return _eec.vectorUnsigned_size(self)
+
+    def swap(self, v):
+        r"""swap(vectorUnsigned self, vectorUnsigned v)"""
+        return _eec.vectorUnsigned_swap(self, v)
+
+    def begin(self):
+        r"""begin(vectorUnsigned self) -> std::vector< unsigned int >::iterator"""
+        return _eec.vectorUnsigned_begin(self)
+
+    def end(self):
+        r"""end(vectorUnsigned self) -> std::vector< unsigned int >::iterator"""
+        return _eec.vectorUnsigned_end(self)
+
+    def rbegin(self):
+        r"""rbegin(vectorUnsigned self) -> std::vector< unsigned int >::reverse_iterator"""
+        return _eec.vectorUnsigned_rbegin(self)
+
+    def rend(self):
+        r"""rend(vectorUnsigned self) -> std::vector< unsigned int >::reverse_iterator"""
+        return _eec.vectorUnsigned_rend(self)
+
+    def clear(self):
+        r"""clear(vectorUnsigned self)"""
+        return _eec.vectorUnsigned_clear(self)
+
+    def get_allocator(self):
+        r"""get_allocator(vectorUnsigned self) -> std::vector< unsigned int >::allocator_type"""
+        return _eec.vectorUnsigned_get_allocator(self)
+
+    def pop_back(self):
+        r"""pop_back(vectorUnsigned self)"""
+        return _eec.vectorUnsigned_pop_back(self)
+
+    def erase(self, *args):
+        r"""
+        erase(vectorUnsigned self, std::vector< unsigned int >::iterator pos) -> std::vector< unsigned int >::iterator
+        erase(vectorUnsigned self, std::vector< unsigned int >::iterator first, std::vector< unsigned int >::iterator last) -> std::vector< unsigned int >::iterator
+        """
+        return _eec.vectorUnsigned_erase(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -354,14 +894,44 @@ class vectorUnsigned(object):
         __init__(vectorUnsigned self, std::vector< unsigned int >::size_type size, std::vector< unsigned int >::value_type const & value) -> vectorUnsigned
         """
         _eec.vectorUnsigned_swiginit(self, _eec.new_vectorUnsigned(*args))
-    push_back = _swig_new_instance_method(_eec.vectorUnsigned_push_back)
-    front = _swig_new_instance_method(_eec.vectorUnsigned_front)
-    back = _swig_new_instance_method(_eec.vectorUnsigned_back)
-    assign = _swig_new_instance_method(_eec.vectorUnsigned_assign)
-    resize = _swig_new_instance_method(_eec.vectorUnsigned_resize)
-    insert = _swig_new_instance_method(_eec.vectorUnsigned_insert)
-    reserve = _swig_new_instance_method(_eec.vectorUnsigned_reserve)
-    capacity = _swig_new_instance_method(_eec.vectorUnsigned_capacity)
+
+    def push_back(self, x):
+        r"""push_back(vectorUnsigned self, std::vector< unsigned int >::value_type const & x)"""
+        return _eec.vectorUnsigned_push_back(self, x)
+
+    def front(self):
+        r"""front(vectorUnsigned self) -> std::vector< unsigned int >::value_type const &"""
+        return _eec.vectorUnsigned_front(self)
+
+    def back(self):
+        r"""back(vectorUnsigned self) -> std::vector< unsigned int >::value_type const &"""
+        return _eec.vectorUnsigned_back(self)
+
+    def assign(self, n, x):
+        r"""assign(vectorUnsigned self, std::vector< unsigned int >::size_type n, std::vector< unsigned int >::value_type const & x)"""
+        return _eec.vectorUnsigned_assign(self, n, x)
+
+    def resize(self, *args):
+        r"""
+        resize(vectorUnsigned self, std::vector< unsigned int >::size_type new_size)
+        resize(vectorUnsigned self, std::vector< unsigned int >::size_type new_size, std::vector< unsigned int >::value_type const & x)
+        """
+        return _eec.vectorUnsigned_resize(self, *args)
+
+    def insert(self, *args):
+        r"""
+        insert(vectorUnsigned self, std::vector< unsigned int >::iterator pos, std::vector< unsigned int >::value_type const & x) -> std::vector< unsigned int >::iterator
+        insert(vectorUnsigned self, std::vector< unsigned int >::iterator pos, std::vector< unsigned int >::size_type n, std::vector< unsigned int >::value_type const & x)
+        """
+        return _eec.vectorUnsigned_insert(self, *args)
+
+    def reserve(self, n):
+        r"""reserve(vectorUnsigned self, std::vector< unsigned int >::size_type n)"""
+        return _eec.vectorUnsigned_reserve(self, n)
+
+    def capacity(self):
+        r"""capacity(vectorUnsigned self) -> std::vector< unsigned int >::size_type"""
+        return _eec.vectorUnsigned_capacity(self)
     __swig_destroy__ = _eec.delete_vectorUnsigned
 
 # Register vectorUnsigned in _eec:
@@ -372,31 +942,116 @@ class vectorArrayDouble2(object):
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.vectorArrayDouble2_iterator)
+
+    def iterator(self):
+        r"""iterator(vectorArrayDouble2 self) -> SwigPyIterator"""
+        return _eec.vectorArrayDouble2_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.vectorArrayDouble2___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.vectorArrayDouble2___bool__)
-    __len__ = _swig_new_instance_method(_eec.vectorArrayDouble2___len__)
-    __getslice__ = _swig_new_instance_method(_eec.vectorArrayDouble2___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.vectorArrayDouble2___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.vectorArrayDouble2___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.vectorArrayDouble2___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.vectorArrayDouble2___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.vectorArrayDouble2___setitem__)
-    pop = _swig_new_instance_method(_eec.vectorArrayDouble2_pop)
-    append = _swig_new_instance_method(_eec.vectorArrayDouble2_append)
-    empty = _swig_new_instance_method(_eec.vectorArrayDouble2_empty)
-    size = _swig_new_instance_method(_eec.vectorArrayDouble2_size)
-    swap = _swig_new_instance_method(_eec.vectorArrayDouble2_swap)
-    begin = _swig_new_instance_method(_eec.vectorArrayDouble2_begin)
-    end = _swig_new_instance_method(_eec.vectorArrayDouble2_end)
-    rbegin = _swig_new_instance_method(_eec.vectorArrayDouble2_rbegin)
-    rend = _swig_new_instance_method(_eec.vectorArrayDouble2_rend)
-    clear = _swig_new_instance_method(_eec.vectorArrayDouble2_clear)
-    get_allocator = _swig_new_instance_method(_eec.vectorArrayDouble2_get_allocator)
-    pop_back = _swig_new_instance_method(_eec.vectorArrayDouble2_pop_back)
-    erase = _swig_new_instance_method(_eec.vectorArrayDouble2_erase)
+
+    def __nonzero__(self):
+        r"""__nonzero__(vectorArrayDouble2 self) -> bool"""
+        return _eec.vectorArrayDouble2___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(vectorArrayDouble2 self) -> bool"""
+        return _eec.vectorArrayDouble2___bool__(self)
+
+    def __len__(self):
+        r"""__len__(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::size_type"""
+        return _eec.vectorArrayDouble2___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i, std::vector< std::array< double,2 > >::difference_type j) -> vectorArrayDouble2"""
+        return _eec.vectorArrayDouble2___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i, std::vector< std::array< double,2 > >::difference_type j)
+        __setslice__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i, std::vector< std::array< double,2 > >::difference_type j, vectorArrayDouble2 v)
+        """
+        return _eec.vectorArrayDouble2___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i, std::vector< std::array< double,2 > >::difference_type j)"""
+        return _eec.vectorArrayDouble2___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i)
+        __delitem__(vectorArrayDouble2 self, PySliceObject * slice)
+        """
+        return _eec.vectorArrayDouble2___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(vectorArrayDouble2 self, PySliceObject * slice) -> vectorArrayDouble2
+        __getitem__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i) -> arrayDouble2
+        """
+        return _eec.vectorArrayDouble2___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(vectorArrayDouble2 self, PySliceObject * slice, vectorArrayDouble2 v)
+        __setitem__(vectorArrayDouble2 self, PySliceObject * slice)
+        __setitem__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::difference_type i, arrayDouble2 x)
+        """
+        return _eec.vectorArrayDouble2___setitem__(self, *args)
+
+    def pop(self):
+        r"""pop(vectorArrayDouble2 self) -> arrayDouble2"""
+        return _eec.vectorArrayDouble2_pop(self)
+
+    def append(self, x):
+        r"""append(vectorArrayDouble2 self, arrayDouble2 x)"""
+        return _eec.vectorArrayDouble2_append(self, x)
+
+    def empty(self):
+        r"""empty(vectorArrayDouble2 self) -> bool"""
+        return _eec.vectorArrayDouble2_empty(self)
+
+    def size(self):
+        r"""size(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::size_type"""
+        return _eec.vectorArrayDouble2_size(self)
+
+    def swap(self, v):
+        r"""swap(vectorArrayDouble2 self, vectorArrayDouble2 v)"""
+        return _eec.vectorArrayDouble2_swap(self, v)
+
+    def begin(self):
+        r"""begin(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::iterator"""
+        return _eec.vectorArrayDouble2_begin(self)
+
+    def end(self):
+        r"""end(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::iterator"""
+        return _eec.vectorArrayDouble2_end(self)
+
+    def rbegin(self):
+        r"""rbegin(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::reverse_iterator"""
+        return _eec.vectorArrayDouble2_rbegin(self)
+
+    def rend(self):
+        r"""rend(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::reverse_iterator"""
+        return _eec.vectorArrayDouble2_rend(self)
+
+    def clear(self):
+        r"""clear(vectorArrayDouble2 self)"""
+        return _eec.vectorArrayDouble2_clear(self)
+
+    def get_allocator(self):
+        r"""get_allocator(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::allocator_type"""
+        return _eec.vectorArrayDouble2_get_allocator(self)
+
+    def pop_back(self):
+        r"""pop_back(vectorArrayDouble2 self)"""
+        return _eec.vectorArrayDouble2_pop_back(self)
+
+    def erase(self, *args):
+        r"""
+        erase(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::iterator pos) -> std::vector< std::array< double,2 > >::iterator
+        erase(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::iterator first, std::vector< std::array< double,2 > >::iterator last) -> std::vector< std::array< double,2 > >::iterator
+        """
+        return _eec.vectorArrayDouble2_erase(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -406,14 +1061,44 @@ class vectorArrayDouble2(object):
         __init__(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::size_type size, arrayDouble2 value) -> vectorArrayDouble2
         """
         _eec.vectorArrayDouble2_swiginit(self, _eec.new_vectorArrayDouble2(*args))
-    push_back = _swig_new_instance_method(_eec.vectorArrayDouble2_push_back)
-    front = _swig_new_instance_method(_eec.vectorArrayDouble2_front)
-    back = _swig_new_instance_method(_eec.vectorArrayDouble2_back)
-    assign = _swig_new_instance_method(_eec.vectorArrayDouble2_assign)
-    resize = _swig_new_instance_method(_eec.vectorArrayDouble2_resize)
-    insert = _swig_new_instance_method(_eec.vectorArrayDouble2_insert)
-    reserve = _swig_new_instance_method(_eec.vectorArrayDouble2_reserve)
-    capacity = _swig_new_instance_method(_eec.vectorArrayDouble2_capacity)
+
+    def push_back(self, x):
+        r"""push_back(vectorArrayDouble2 self, arrayDouble2 x)"""
+        return _eec.vectorArrayDouble2_push_back(self, x)
+
+    def front(self):
+        r"""front(vectorArrayDouble2 self) -> arrayDouble2"""
+        return _eec.vectorArrayDouble2_front(self)
+
+    def back(self):
+        r"""back(vectorArrayDouble2 self) -> arrayDouble2"""
+        return _eec.vectorArrayDouble2_back(self)
+
+    def assign(self, n, x):
+        r"""assign(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::size_type n, arrayDouble2 x)"""
+        return _eec.vectorArrayDouble2_assign(self, n, x)
+
+    def resize(self, *args):
+        r"""
+        resize(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::size_type new_size)
+        resize(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::size_type new_size, arrayDouble2 x)
+        """
+        return _eec.vectorArrayDouble2_resize(self, *args)
+
+    def insert(self, *args):
+        r"""
+        insert(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::iterator pos, arrayDouble2 x) -> std::vector< std::array< double,2 > >::iterator
+        insert(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::iterator pos, std::vector< std::array< double,2 > >::size_type n, arrayDouble2 x)
+        """
+        return _eec.vectorArrayDouble2_insert(self, *args)
+
+    def reserve(self, n):
+        r"""reserve(vectorArrayDouble2 self, std::vector< std::array< double,2 > >::size_type n)"""
+        return _eec.vectorArrayDouble2_reserve(self, n)
+
+    def capacity(self):
+        r"""capacity(vectorArrayDouble2 self) -> std::vector< std::array< double,2 > >::size_type"""
+        return _eec.vectorArrayDouble2_capacity(self)
     __swig_destroy__ = _eec.delete_vectorArrayDouble2
 
 # Register vectorArrayDouble2 in _eec:
@@ -459,12 +1144,30 @@ CompressionMode_Zlib = _eec.CompressionMode_Zlib
 
 CompressionMode_NotSupported = _eec.CompressionMode_NotSupported
 
-get_archive_format = _eec.get_archive_format
-get_compression_mode = _eec.get_compression_mode
-set_archive_format = _eec.set_archive_format
-set_compression_mode = _eec.set_compression_mode
-particle_weight_name = _eec.particle_weight_name
-pairwise_distance_name = _eec.pairwise_distance_name
+
+def get_archive_format():
+    r"""get_archive_format() -> fastjet::contrib::eec::ArchiveFormat"""
+    return _eec.get_archive_format()
+
+def get_compression_mode():
+    r"""get_compression_mode() -> fastjet::contrib::eec::CompressionMode"""
+    return _eec.get_compression_mode()
+
+def set_archive_format(a):
+    r"""set_archive_format(fastjet::contrib::eec::ArchiveFormat a)"""
+    return _eec.set_archive_format(a)
+
+def set_compression_mode(c):
+    r"""set_compression_mode(fastjet::contrib::eec::CompressionMode c)"""
+    return _eec.set_compression_mode(c)
+
+def particle_weight_name(pw):
+    r"""particle_weight_name(fastjet::contrib::eec::ParticleWeight pw) -> std::string"""
+    return _eec.particle_weight_name(pw)
+
+def pairwise_distance_name(pd):
+    r"""pairwise_distance_name(fastjet::contrib::eec::PairwiseDistance pd) -> std::string"""
+    return _eec.pairwise_distance_name(pd)
 class reduce_command(object):
     r"""Proxy of C++ boost::histogram::algorithm::reduce_command class."""
 
@@ -484,41 +1187,156 @@ PI = cvar.PI
 TWOPI = cvar.TWOPI
 HAS_SERIALIZATION_SUPPORT = cvar.HAS_SERIALIZATION_SUPPORT
 
-rebin = _eec.rebin
-shrink = _eec.shrink
-slice = _eec.slice
-shrink_and_rebin = _eec.shrink_and_rebin
-slice_and_rebin = _eec.slice_and_rebin
+
+def rebin(*args):
+    r"""
+    rebin(unsigned int iaxis, unsigned int merge) -> reduce_command
+    rebin(unsigned int merge) -> reduce_command
+    """
+    return _eec.rebin(*args)
+
+def shrink(*args):
+    r"""
+    shrink(unsigned int iaxis, double lower, double upper) -> reduce_command
+    shrink(double lower, double upper) -> reduce_command
+    """
+    return _eec.shrink(*args)
+
+def slice(*args):
+    r"""
+    slice(unsigned int iaxis, int begin, int end) -> reduce_command
+    slice(int begin, int end) -> reduce_command
+    """
+    return _eec.slice(*args)
+
+def shrink_and_rebin(*args):
+    r"""
+    shrink_and_rebin(unsigned int iaxis, double lower, double upper, unsigned int merge) -> reduce_command
+    shrink_and_rebin(double lower, double upper, unsigned int merge) -> reduce_command
+    """
+    return _eec.shrink_and_rebin(*args)
+
+def slice_and_rebin(*args):
+    r"""
+    slice_and_rebin(unsigned int iaxis, int begin, int end, unsigned int merge) -> reduce_command
+    slice_and_rebin(int begin, int end, unsigned int merge) -> reduce_command
+    """
+    return _eec.slice_and_rebin(*args)
 class vectorReduceCommand(object):
     r"""Proxy of C++ std::vector< boost::histogram::algorithm::reduce_command > class."""
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
-    iterator = _swig_new_instance_method(_eec.vectorReduceCommand_iterator)
+
+    def iterator(self):
+        r"""iterator(vectorReduceCommand self) -> SwigPyIterator"""
+        return _eec.vectorReduceCommand_iterator(self)
     def __iter__(self):
         return self.iterator()
-    __nonzero__ = _swig_new_instance_method(_eec.vectorReduceCommand___nonzero__)
-    __bool__ = _swig_new_instance_method(_eec.vectorReduceCommand___bool__)
-    __len__ = _swig_new_instance_method(_eec.vectorReduceCommand___len__)
-    __getslice__ = _swig_new_instance_method(_eec.vectorReduceCommand___getslice__)
-    __setslice__ = _swig_new_instance_method(_eec.vectorReduceCommand___setslice__)
-    __delslice__ = _swig_new_instance_method(_eec.vectorReduceCommand___delslice__)
-    __delitem__ = _swig_new_instance_method(_eec.vectorReduceCommand___delitem__)
-    __getitem__ = _swig_new_instance_method(_eec.vectorReduceCommand___getitem__)
-    __setitem__ = _swig_new_instance_method(_eec.vectorReduceCommand___setitem__)
-    pop = _swig_new_instance_method(_eec.vectorReduceCommand_pop)
-    append = _swig_new_instance_method(_eec.vectorReduceCommand_append)
-    empty = _swig_new_instance_method(_eec.vectorReduceCommand_empty)
-    size = _swig_new_instance_method(_eec.vectorReduceCommand_size)
-    swap = _swig_new_instance_method(_eec.vectorReduceCommand_swap)
-    begin = _swig_new_instance_method(_eec.vectorReduceCommand_begin)
-    end = _swig_new_instance_method(_eec.vectorReduceCommand_end)
-    rbegin = _swig_new_instance_method(_eec.vectorReduceCommand_rbegin)
-    rend = _swig_new_instance_method(_eec.vectorReduceCommand_rend)
-    clear = _swig_new_instance_method(_eec.vectorReduceCommand_clear)
-    get_allocator = _swig_new_instance_method(_eec.vectorReduceCommand_get_allocator)
-    pop_back = _swig_new_instance_method(_eec.vectorReduceCommand_pop_back)
-    erase = _swig_new_instance_method(_eec.vectorReduceCommand_erase)
+
+    def __nonzero__(self):
+        r"""__nonzero__(vectorReduceCommand self) -> bool"""
+        return _eec.vectorReduceCommand___nonzero__(self)
+
+    def __bool__(self):
+        r"""__bool__(vectorReduceCommand self) -> bool"""
+        return _eec.vectorReduceCommand___bool__(self)
+
+    def __len__(self):
+        r"""__len__(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::size_type"""
+        return _eec.vectorReduceCommand___len__(self)
+
+    def __getslice__(self, i, j):
+        r"""__getslice__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i, std::vector< boost::histogram::algorithm::reduce_command >::difference_type j) -> vectorReduceCommand"""
+        return _eec.vectorReduceCommand___getslice__(self, i, j)
+
+    def __setslice__(self, *args):
+        r"""
+        __setslice__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i, std::vector< boost::histogram::algorithm::reduce_command >::difference_type j)
+        __setslice__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i, std::vector< boost::histogram::algorithm::reduce_command >::difference_type j, vectorReduceCommand v)
+        """
+        return _eec.vectorReduceCommand___setslice__(self, *args)
+
+    def __delslice__(self, i, j):
+        r"""__delslice__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i, std::vector< boost::histogram::algorithm::reduce_command >::difference_type j)"""
+        return _eec.vectorReduceCommand___delslice__(self, i, j)
+
+    def __delitem__(self, *args):
+        r"""
+        __delitem__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i)
+        __delitem__(vectorReduceCommand self, PySliceObject * slice)
+        """
+        return _eec.vectorReduceCommand___delitem__(self, *args)
+
+    def __getitem__(self, *args):
+        r"""
+        __getitem__(vectorReduceCommand self, PySliceObject * slice) -> vectorReduceCommand
+        __getitem__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i) -> reduce_command
+        """
+        return _eec.vectorReduceCommand___getitem__(self, *args)
+
+    def __setitem__(self, *args):
+        r"""
+        __setitem__(vectorReduceCommand self, PySliceObject * slice, vectorReduceCommand v)
+        __setitem__(vectorReduceCommand self, PySliceObject * slice)
+        __setitem__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::difference_type i, reduce_command x)
+        """
+        return _eec.vectorReduceCommand___setitem__(self, *args)
+
+    def pop(self):
+        r"""pop(vectorReduceCommand self) -> reduce_command"""
+        return _eec.vectorReduceCommand_pop(self)
+
+    def append(self, x):
+        r"""append(vectorReduceCommand self, reduce_command x)"""
+        return _eec.vectorReduceCommand_append(self, x)
+
+    def empty(self):
+        r"""empty(vectorReduceCommand self) -> bool"""
+        return _eec.vectorReduceCommand_empty(self)
+
+    def size(self):
+        r"""size(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::size_type"""
+        return _eec.vectorReduceCommand_size(self)
+
+    def swap(self, v):
+        r"""swap(vectorReduceCommand self, vectorReduceCommand v)"""
+        return _eec.vectorReduceCommand_swap(self, v)
+
+    def begin(self):
+        r"""begin(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::iterator"""
+        return _eec.vectorReduceCommand_begin(self)
+
+    def end(self):
+        r"""end(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::iterator"""
+        return _eec.vectorReduceCommand_end(self)
+
+    def rbegin(self):
+        r"""rbegin(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::reverse_iterator"""
+        return _eec.vectorReduceCommand_rbegin(self)
+
+    def rend(self):
+        r"""rend(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::reverse_iterator"""
+        return _eec.vectorReduceCommand_rend(self)
+
+    def clear(self):
+        r"""clear(vectorReduceCommand self)"""
+        return _eec.vectorReduceCommand_clear(self)
+
+    def get_allocator(self):
+        r"""get_allocator(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::allocator_type"""
+        return _eec.vectorReduceCommand_get_allocator(self)
+
+    def pop_back(self):
+        r"""pop_back(vectorReduceCommand self)"""
+        return _eec.vectorReduceCommand_pop_back(self)
+
+    def erase(self, *args):
+        r"""
+        erase(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::iterator pos) -> std::vector< boost::histogram::algorithm::reduce_command >::iterator
+        erase(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::iterator first, std::vector< boost::histogram::algorithm::reduce_command >::iterator last) -> std::vector< boost::histogram::algorithm::reduce_command >::iterator
+        """
+        return _eec.vectorReduceCommand_erase(self, *args)
 
     def __init__(self, *args):
         r"""
@@ -528,14 +1346,44 @@ class vectorReduceCommand(object):
         __init__(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::size_type size, reduce_command value) -> vectorReduceCommand
         """
         _eec.vectorReduceCommand_swiginit(self, _eec.new_vectorReduceCommand(*args))
-    push_back = _swig_new_instance_method(_eec.vectorReduceCommand_push_back)
-    front = _swig_new_instance_method(_eec.vectorReduceCommand_front)
-    back = _swig_new_instance_method(_eec.vectorReduceCommand_back)
-    assign = _swig_new_instance_method(_eec.vectorReduceCommand_assign)
-    resize = _swig_new_instance_method(_eec.vectorReduceCommand_resize)
-    insert = _swig_new_instance_method(_eec.vectorReduceCommand_insert)
-    reserve = _swig_new_instance_method(_eec.vectorReduceCommand_reserve)
-    capacity = _swig_new_instance_method(_eec.vectorReduceCommand_capacity)
+
+    def push_back(self, x):
+        r"""push_back(vectorReduceCommand self, reduce_command x)"""
+        return _eec.vectorReduceCommand_push_back(self, x)
+
+    def front(self):
+        r"""front(vectorReduceCommand self) -> reduce_command"""
+        return _eec.vectorReduceCommand_front(self)
+
+    def back(self):
+        r"""back(vectorReduceCommand self) -> reduce_command"""
+        return _eec.vectorReduceCommand_back(self)
+
+    def assign(self, n, x):
+        r"""assign(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::size_type n, reduce_command x)"""
+        return _eec.vectorReduceCommand_assign(self, n, x)
+
+    def resize(self, *args):
+        r"""
+        resize(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::size_type new_size)
+        resize(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::size_type new_size, reduce_command x)
+        """
+        return _eec.vectorReduceCommand_resize(self, *args)
+
+    def insert(self, *args):
+        r"""
+        insert(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::iterator pos, reduce_command x) -> std::vector< boost::histogram::algorithm::reduce_command >::iterator
+        insert(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::iterator pos, std::vector< boost::histogram::algorithm::reduce_command >::size_type n, reduce_command x)
+        """
+        return _eec.vectorReduceCommand_insert(self, *args)
+
+    def reserve(self, n):
+        r"""reserve(vectorReduceCommand self, std::vector< boost::histogram::algorithm::reduce_command >::size_type n)"""
+        return _eec.vectorReduceCommand_reserve(self, n)
+
+    def capacity(self):
+        r"""capacity(vectorReduceCommand self) -> std::vector< boost::histogram::algorithm::reduce_command >::size_type"""
+        return _eec.vectorReduceCommand_capacity(self)
     __swig_destroy__ = _eec.delete_vectorReduceCommand
 
 # Register vectorReduceCommand in _eec:
@@ -549,39 +1397,142 @@ class EECHistBase1DId(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBase1DId_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBase1DId_rank()
     __swig_destroy__ = _eec.delete_EECHistBase1DId
-    track_covariance = _swig_new_instance_method(_eec.EECHistBase1DId_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBase1DId_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBase1DId_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBase1DId_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBase1DId_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBase1DId_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBase1DId_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBase1DId_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBase1DId_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBase1DId_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBase1DId_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBase1DId_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBase1DId_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBase1DId_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBase1DId_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBase1DId_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBase1DId_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBase1DId_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBase1DId_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBase1DId_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBase1DId_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBase1DId_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBase1DId_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBase1DId_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBase1DId_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBase1DId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBase1DId___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBase1DId_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBase1DId_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBase1DId_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBase1DId_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBase1DId self) -> bool"""
+        return _eec.EECHistBase1DId_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBase1DId self) -> bool"""
+        return _eec.EECHistBase1DId_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBase1DId self) -> bool"""
+        return _eec.EECHistBase1DId_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBase1DId self) -> std::size_t"""
+        return _eec.EECHistBase1DId_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBase1DId self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBase1DId_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBase1DId self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBase1DId_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBase1DId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBase1DId_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBase1DId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBase1DId_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBase1DId self, bool track)"""
+        return _eec.EECHistBase1DId_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBase1DId self, bool bound)"""
+        return _eec.EECHistBase1DId_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBase1DId self, bool include)"""
+        return _eec.EECHistBase1DId_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBase1DId self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBase1DId self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBase1DId_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBase1DId self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBase1DId_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBase1DId self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBase1DId_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBase1DId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBase1DId_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBase1DId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBase1DId_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBase1DId self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBase1DId_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBase1DId self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBase1DId_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBase1DId self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBase1DId_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBase1DId self)"""
+        return _eec.EECHistBase1DId_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBase1DId self, reduce_command rc)
+        reduce(EECHistBase1DId self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBase1DId_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBase1DId self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBase1DId_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBase1DId self, EECHistBase1DId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DId_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBase1DId self, EECHistBase1DId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DId_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBase1DId self, EECHistBase1DId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DId_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBase1DId self, EECHistBase1DId rhs) -> bool"""
+        return _eec.EECHistBase1DId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBase1DId self, EECHistBase1DId rhs) -> bool"""
+        return _eec.EECHistBase1DId___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBase1DId self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBase1DId_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBase1DId self, int i=0)"""
+        return _eec.EECHistBase1DId_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBase1DId self, int i=0)"""
+        return _eec.EECHistBase1DId_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBase1DId self, double x)"""
+        return _eec.EECHistBase1DId_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -593,7 +1544,10 @@ class EECHistBase1DId(object):
 
 # Register EECHistBase1DId in _eec:
 _eec.EECHistBase1DId_swigregister(EECHistBase1DId)
-EECHistBase1DId_rank = _eec.EECHistBase1DId_rank
+
+def EECHistBase1DId_rank():
+    r"""EECHistBase1DId_rank() -> unsigned int"""
+    return _eec.EECHistBase1DId_rank()
 
 class EECHistBase1DLog(object):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHistBase< fastjet::contrib::eec::hist::EECHist1D< axis::log > > class."""
@@ -603,39 +1557,142 @@ class EECHistBase1DLog(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBase1DLog_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBase1DLog_rank()
     __swig_destroy__ = _eec.delete_EECHistBase1DLog
-    track_covariance = _swig_new_instance_method(_eec.EECHistBase1DLog_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBase1DLog_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBase1DLog_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBase1DLog_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBase1DLog_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBase1DLog_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBase1DLog_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBase1DLog_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBase1DLog_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBase1DLog_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBase1DLog_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBase1DLog_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBase1DLog_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBase1DLog_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBase1DLog_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBase1DLog_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBase1DLog_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBase1DLog_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBase1DLog_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBase1DLog_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBase1DLog_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBase1DLog_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBase1DLog_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBase1DLog_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBase1DLog_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBase1DLog___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBase1DLog___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBase1DLog_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBase1DLog_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBase1DLog_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBase1DLog_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBase1DLog self) -> bool"""
+        return _eec.EECHistBase1DLog_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBase1DLog self) -> bool"""
+        return _eec.EECHistBase1DLog_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBase1DLog self) -> bool"""
+        return _eec.EECHistBase1DLog_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBase1DLog self) -> std::size_t"""
+        return _eec.EECHistBase1DLog_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBase1DLog self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBase1DLog_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBase1DLog self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBase1DLog_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBase1DLog self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBase1DLog_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBase1DLog self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBase1DLog_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBase1DLog self, bool track)"""
+        return _eec.EECHistBase1DLog_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBase1DLog self, bool bound)"""
+        return _eec.EECHistBase1DLog_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBase1DLog self, bool include)"""
+        return _eec.EECHistBase1DLog_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBase1DLog self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBase1DLog self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBase1DLog_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBase1DLog self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBase1DLog_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBase1DLog self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBase1DLog_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBase1DLog self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBase1DLog_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBase1DLog self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBase1DLog_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBase1DLog self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBase1DLog_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBase1DLog self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBase1DLog_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBase1DLog self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBase1DLog_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBase1DLog self)"""
+        return _eec.EECHistBase1DLog_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBase1DLog self, reduce_command rc)
+        reduce(EECHistBase1DLog self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBase1DLog_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBase1DLog self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBase1DLog_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBase1DLog self, EECHistBase1DLog other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DLog_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBase1DLog self, EECHistBase1DLog other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DLog_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBase1DLog self, EECHistBase1DLog other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBase1DLog_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBase1DLog self, EECHistBase1DLog rhs) -> bool"""
+        return _eec.EECHistBase1DLog___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBase1DLog self, EECHistBase1DLog rhs) -> bool"""
+        return _eec.EECHistBase1DLog___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBase1DLog self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBase1DLog_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBase1DLog self, int i=0)"""
+        return _eec.EECHistBase1DLog_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBase1DLog self, int i=0)"""
+        return _eec.EECHistBase1DLog_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBase1DLog self, double x)"""
+        return _eec.EECHistBase1DLog_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -647,7 +1704,10 @@ class EECHistBase1DLog(object):
 
 # Register EECHistBase1DLog in _eec:
 _eec.EECHistBase1DLog_swigregister(EECHistBase1DLog)
-EECHistBase1DLog_rank = _eec.EECHistBase1DLog_rank
+
+def EECHistBase1DLog_rank():
+    r"""EECHistBase1DLog_rank() -> unsigned int"""
+    return _eec.EECHistBase1DLog_rank()
 
 class EECHistBaseIdIdId(object):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHistBase< fastjet::contrib::eec::hist::EECHist3D< axis::id,axis::id,axis::id > > class."""
@@ -657,39 +1717,142 @@ class EECHistBaseIdIdId(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBaseIdIdId_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBaseIdIdId_rank()
     __swig_destroy__ = _eec.delete_EECHistBaseIdIdId
-    track_covariance = _swig_new_instance_method(_eec.EECHistBaseIdIdId_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBaseIdIdId_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseIdIdId_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBaseIdIdId_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBaseIdIdId_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBaseIdIdId_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBaseIdIdId_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBaseIdIdId_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBaseIdIdId_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBaseIdIdId_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBaseIdIdId_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBaseIdIdId_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBaseIdIdId_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBaseIdIdId_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBaseIdIdId_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBaseIdIdId_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBaseIdIdId_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBaseIdIdId_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBaseIdIdId_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBaseIdIdId_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBaseIdIdId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBaseIdIdId___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBaseIdIdId_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBaseIdIdId_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBaseIdIdId_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBaseIdIdId_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBaseIdIdId self) -> bool"""
+        return _eec.EECHistBaseIdIdId_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBaseIdIdId self) -> bool"""
+        return _eec.EECHistBaseIdIdId_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBaseIdIdId self) -> bool"""
+        return _eec.EECHistBaseIdIdId_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBaseIdIdId self) -> std::size_t"""
+        return _eec.EECHistBaseIdIdId_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBaseIdIdId self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBaseIdIdId_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBaseIdIdId self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBaseIdIdId_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBaseIdIdId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseIdIdId_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBaseIdIdId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseIdIdId_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBaseIdIdId self, bool track)"""
+        return _eec.EECHistBaseIdIdId_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBaseIdIdId self, bool bound)"""
+        return _eec.EECHistBaseIdIdId_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBaseIdIdId self, bool include)"""
+        return _eec.EECHistBaseIdIdId_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBaseIdIdId self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBaseIdIdId self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBaseIdIdId_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBaseIdIdId self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBaseIdIdId_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBaseIdIdId self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBaseIdIdId_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBaseIdIdId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseIdIdId_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBaseIdIdId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseIdIdId_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBaseIdIdId self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBaseIdIdId_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBaseIdIdId self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBaseIdIdId_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBaseIdIdId self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBaseIdIdId_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBaseIdIdId self)"""
+        return _eec.EECHistBaseIdIdId_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBaseIdIdId self, reduce_command rc)
+        reduce(EECHistBaseIdIdId self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBaseIdIdId_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBaseIdIdId self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBaseIdIdId_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBaseIdIdId self, EECHistBaseIdIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdIdId_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBaseIdIdId self, EECHistBaseIdIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdIdId_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBaseIdIdId self, EECHistBaseIdIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdIdId_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBaseIdIdId self, EECHistBaseIdIdId rhs) -> bool"""
+        return _eec.EECHistBaseIdIdId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBaseIdIdId self, EECHistBaseIdIdId rhs) -> bool"""
+        return _eec.EECHistBaseIdIdId___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBaseIdIdId self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBaseIdIdId_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBaseIdIdId self, int i=0)"""
+        return _eec.EECHistBaseIdIdId_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBaseIdIdId self, int i=0)"""
+        return _eec.EECHistBaseIdIdId_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBaseIdIdId self, double x)"""
+        return _eec.EECHistBaseIdIdId_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -701,7 +1864,10 @@ class EECHistBaseIdIdId(object):
 
 # Register EECHistBaseIdIdId in _eec:
 _eec.EECHistBaseIdIdId_swigregister(EECHistBaseIdIdId)
-EECHistBaseIdIdId_rank = _eec.EECHistBaseIdIdId_rank
+
+def EECHistBaseIdIdId_rank():
+    r"""EECHistBaseIdIdId_rank() -> unsigned int"""
+    return _eec.EECHistBaseIdIdId_rank()
 
 class EECHistBaseLogIdId(object):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHistBase< fastjet::contrib::eec::hist::EECHist3D< axis::log,axis::id,axis::id > > class."""
@@ -711,39 +1877,142 @@ class EECHistBaseLogIdId(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBaseLogIdId_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBaseLogIdId_rank()
     __swig_destroy__ = _eec.delete_EECHistBaseLogIdId
-    track_covariance = _swig_new_instance_method(_eec.EECHistBaseLogIdId_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBaseLogIdId_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseLogIdId_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBaseLogIdId_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBaseLogIdId_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBaseLogIdId_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBaseLogIdId_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBaseLogIdId_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBaseLogIdId_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBaseLogIdId_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBaseLogIdId_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBaseLogIdId_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBaseLogIdId_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBaseLogIdId_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBaseLogIdId_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBaseLogIdId_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBaseLogIdId_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBaseLogIdId_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBaseLogIdId_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBaseLogIdId_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBaseLogIdId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBaseLogIdId___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBaseLogIdId_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBaseLogIdId_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBaseLogIdId_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBaseLogIdId_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBaseLogIdId self) -> bool"""
+        return _eec.EECHistBaseLogIdId_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBaseLogIdId self) -> bool"""
+        return _eec.EECHistBaseLogIdId_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBaseLogIdId self) -> bool"""
+        return _eec.EECHistBaseLogIdId_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBaseLogIdId self) -> std::size_t"""
+        return _eec.EECHistBaseLogIdId_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBaseLogIdId self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBaseLogIdId_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBaseLogIdId self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBaseLogIdId_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBaseLogIdId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseLogIdId_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBaseLogIdId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseLogIdId_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBaseLogIdId self, bool track)"""
+        return _eec.EECHistBaseLogIdId_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBaseLogIdId self, bool bound)"""
+        return _eec.EECHistBaseLogIdId_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBaseLogIdId self, bool include)"""
+        return _eec.EECHistBaseLogIdId_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBaseLogIdId self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBaseLogIdId self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBaseLogIdId_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBaseLogIdId self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBaseLogIdId_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBaseLogIdId self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBaseLogIdId_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBaseLogIdId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseLogIdId_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBaseLogIdId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseLogIdId_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBaseLogIdId self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBaseLogIdId_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBaseLogIdId self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBaseLogIdId_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBaseLogIdId self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBaseLogIdId_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBaseLogIdId self)"""
+        return _eec.EECHistBaseLogIdId_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBaseLogIdId self, reduce_command rc)
+        reduce(EECHistBaseLogIdId self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBaseLogIdId_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBaseLogIdId self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBaseLogIdId_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBaseLogIdId self, EECHistBaseLogIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogIdId_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBaseLogIdId self, EECHistBaseLogIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogIdId_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBaseLogIdId self, EECHistBaseLogIdId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogIdId_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBaseLogIdId self, EECHistBaseLogIdId rhs) -> bool"""
+        return _eec.EECHistBaseLogIdId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBaseLogIdId self, EECHistBaseLogIdId rhs) -> bool"""
+        return _eec.EECHistBaseLogIdId___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBaseLogIdId self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBaseLogIdId_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBaseLogIdId self, int i=0)"""
+        return _eec.EECHistBaseLogIdId_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBaseLogIdId self, int i=0)"""
+        return _eec.EECHistBaseLogIdId_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBaseLogIdId self, double x)"""
+        return _eec.EECHistBaseLogIdId_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -755,7 +2024,10 @@ class EECHistBaseLogIdId(object):
 
 # Register EECHistBaseLogIdId in _eec:
 _eec.EECHistBaseLogIdId_swigregister(EECHistBaseLogIdId)
-EECHistBaseLogIdId_rank = _eec.EECHistBaseLogIdId_rank
+
+def EECHistBaseLogIdId_rank():
+    r"""EECHistBaseLogIdId_rank() -> unsigned int"""
+    return _eec.EECHistBaseLogIdId_rank()
 
 class EECHistBaseIdLogId(object):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHistBase< fastjet::contrib::eec::hist::EECHist3D< axis::id,axis::log,axis::id > > class."""
@@ -765,39 +2037,142 @@ class EECHistBaseIdLogId(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBaseIdLogId_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBaseIdLogId_rank()
     __swig_destroy__ = _eec.delete_EECHistBaseIdLogId
-    track_covariance = _swig_new_instance_method(_eec.EECHistBaseIdLogId_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBaseIdLogId_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseIdLogId_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBaseIdLogId_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBaseIdLogId_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBaseIdLogId_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBaseIdLogId_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBaseIdLogId_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBaseIdLogId_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBaseIdLogId_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBaseIdLogId_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBaseIdLogId_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBaseIdLogId_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBaseIdLogId_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBaseIdLogId_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBaseIdLogId_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBaseIdLogId_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBaseIdLogId_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBaseIdLogId_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBaseIdLogId_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBaseIdLogId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBaseIdLogId___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBaseIdLogId_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBaseIdLogId_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBaseIdLogId_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBaseIdLogId_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBaseIdLogId self) -> bool"""
+        return _eec.EECHistBaseIdLogId_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBaseIdLogId self) -> bool"""
+        return _eec.EECHistBaseIdLogId_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBaseIdLogId self) -> bool"""
+        return _eec.EECHistBaseIdLogId_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBaseIdLogId self) -> std::size_t"""
+        return _eec.EECHistBaseIdLogId_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBaseIdLogId self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBaseIdLogId_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBaseIdLogId self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBaseIdLogId_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBaseIdLogId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseIdLogId_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBaseIdLogId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseIdLogId_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBaseIdLogId self, bool track)"""
+        return _eec.EECHistBaseIdLogId_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBaseIdLogId self, bool bound)"""
+        return _eec.EECHistBaseIdLogId_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBaseIdLogId self, bool include)"""
+        return _eec.EECHistBaseIdLogId_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBaseIdLogId self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBaseIdLogId self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBaseIdLogId_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBaseIdLogId self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBaseIdLogId_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBaseIdLogId self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBaseIdLogId_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBaseIdLogId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseIdLogId_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBaseIdLogId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseIdLogId_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBaseIdLogId self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBaseIdLogId_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBaseIdLogId self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBaseIdLogId_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBaseIdLogId self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBaseIdLogId_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBaseIdLogId self)"""
+        return _eec.EECHistBaseIdLogId_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBaseIdLogId self, reduce_command rc)
+        reduce(EECHistBaseIdLogId self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBaseIdLogId_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBaseIdLogId self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBaseIdLogId_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBaseIdLogId self, EECHistBaseIdLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdLogId_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBaseIdLogId self, EECHistBaseIdLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdLogId_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBaseIdLogId self, EECHistBaseIdLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseIdLogId_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBaseIdLogId self, EECHistBaseIdLogId rhs) -> bool"""
+        return _eec.EECHistBaseIdLogId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBaseIdLogId self, EECHistBaseIdLogId rhs) -> bool"""
+        return _eec.EECHistBaseIdLogId___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBaseIdLogId self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBaseIdLogId_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBaseIdLogId self, int i=0)"""
+        return _eec.EECHistBaseIdLogId_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBaseIdLogId self, int i=0)"""
+        return _eec.EECHistBaseIdLogId_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBaseIdLogId self, double x)"""
+        return _eec.EECHistBaseIdLogId_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -809,7 +2184,10 @@ class EECHistBaseIdLogId(object):
 
 # Register EECHistBaseIdLogId in _eec:
 _eec.EECHistBaseIdLogId_swigregister(EECHistBaseIdLogId)
-EECHistBaseIdLogId_rank = _eec.EECHistBaseIdLogId_rank
+
+def EECHistBaseIdLogId_rank():
+    r"""EECHistBaseIdLogId_rank() -> unsigned int"""
+    return _eec.EECHistBaseIdLogId_rank()
 
 class EECHistBaseLogLogId(object):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHistBase< fastjet::contrib::eec::hist::EECHist3D< axis::log,axis::log,axis::id > > class."""
@@ -819,39 +2197,142 @@ class EECHistBaseLogLogId(object):
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
-    rank = _swig_new_static_method(_eec.EECHistBaseLogLogId_rank)
+
+    @staticmethod
+    def rank():
+        r"""rank() -> unsigned int"""
+        return _eec.EECHistBaseLogLogId_rank()
     __swig_destroy__ = _eec.delete_EECHistBaseLogLogId
-    track_covariance = _swig_new_instance_method(_eec.EECHistBaseLogLogId_track_covariance)
-    variance_bound = _swig_new_instance_method(_eec.EECHistBaseLogLogId_variance_bound)
-    variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseLogLogId_variance_bound_includes_overflows)
-    nhists = _swig_new_instance_method(_eec.EECHistBaseLogLogId_nhists)
-    nbins = _swig_new_instance_method(_eec.EECHistBaseLogLogId_nbins)
-    axis_range = _swig_new_instance_method(_eec.EECHistBaseLogLogId_axis_range)
-    axis_min = _swig_new_instance_method(_eec.EECHistBaseLogLogId_axis_min)
-    axis_max = _swig_new_instance_method(_eec.EECHistBaseLogLogId_axis_max)
-    set_track_covariance = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_track_covariance)
-    set_variance_bound = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_variance_bound)
-    set_variance_bound_includes_overflows = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_variance_bound_includes_overflows)
-    set_nbins = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_nbins)
-    set_axis_range = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_axis_range)
-    set_axes_range = _swig_new_instance_method(_eec.EECHistBaseLogLogId_set_axes_range)
-    bin_centers_vec = _swig_new_instance_method(_eec.EECHistBaseLogLogId_bin_centers_vec)
-    bin_edges_vec = _swig_new_instance_method(_eec.EECHistBaseLogLogId_bin_edges_vec)
-    hist_size = _swig_new_instance_method(_eec.EECHistBaseLogLogId_hist_size)
-    covariance_size = _swig_new_instance_method(_eec.EECHistBaseLogLogId_covariance_size)
-    event_count = _swig_new_instance_method(_eec.EECHistBaseLogLogId_event_count)
-    clear_hists = _swig_new_instance_method(_eec.EECHistBaseLogLogId_clear_hists)
-    reduce = _swig_new_instance_method(_eec.EECHistBaseLogLogId_reduce)
-    sum = _swig_new_instance_method(_eec.EECHistBaseLogLogId_sum)
-    diff_hists = _swig_new_instance_method(_eec.EECHistBaseLogLogId_diff_hists)
-    diff_covariances = _swig_new_instance_method(_eec.EECHistBaseLogLogId_diff_covariances)
-    diff_variance_bounds = _swig_new_instance_method(_eec.EECHistBaseLogLogId_diff_variance_bounds)
-    __ne__ = _swig_new_instance_method(_eec.EECHistBaseLogLogId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECHistBaseLogLogId___eq__)
-    hists_as_text = _swig_new_instance_method(_eec.EECHistBaseLogLogId_hists_as_text)
-    bin_centers = _swig_new_instance_method(_eec.EECHistBaseLogLogId_bin_centers)
-    bin_edges = _swig_new_instance_method(_eec.EECHistBaseLogLogId_bin_edges)
-    scale = _swig_new_instance_method(_eec.EECHistBaseLogLogId_scale)
+
+    def track_covariance(self):
+        r"""track_covariance(EECHistBaseLogLogId self) -> bool"""
+        return _eec.EECHistBaseLogLogId_track_covariance(self)
+
+    def variance_bound(self):
+        r"""variance_bound(EECHistBaseLogLogId self) -> bool"""
+        return _eec.EECHistBaseLogLogId_variance_bound(self)
+
+    def variance_bound_includes_overflows(self):
+        r"""variance_bound_includes_overflows(EECHistBaseLogLogId self) -> bool"""
+        return _eec.EECHistBaseLogLogId_variance_bound_includes_overflows(self)
+
+    def nhists(self):
+        r"""nhists(EECHistBaseLogLogId self) -> std::size_t"""
+        return _eec.EECHistBaseLogLogId_nhists(self)
+
+    def nbins(self, axis=0):
+        r"""nbins(EECHistBaseLogLogId self, unsigned int axis=0) -> unsigned int"""
+        return _eec.EECHistBaseLogLogId_nbins(self, axis)
+
+    def axis_range(self, axis=0):
+        r"""axis_range(EECHistBaseLogLogId self, unsigned int axis=0) -> arrayDouble2"""
+        return _eec.EECHistBaseLogLogId_axis_range(self, axis)
+
+    def axis_min(self, axis=0):
+        r"""axis_min(EECHistBaseLogLogId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseLogLogId_axis_min(self, axis)
+
+    def axis_max(self, axis=0):
+        r"""axis_max(EECHistBaseLogLogId self, unsigned int axis=0) -> double"""
+        return _eec.EECHistBaseLogLogId_axis_max(self, axis)
+
+    def set_track_covariance(self, track):
+        r"""set_track_covariance(EECHistBaseLogLogId self, bool track)"""
+        return _eec.EECHistBaseLogLogId_set_track_covariance(self, track)
+
+    def set_variance_bound(self, bound):
+        r"""set_variance_bound(EECHistBaseLogLogId self, bool bound)"""
+        return _eec.EECHistBaseLogLogId_set_variance_bound(self, bound)
+
+    def set_variance_bound_includes_overflows(self, include):
+        r"""set_variance_bound_includes_overflows(EECHistBaseLogLogId self, bool include)"""
+        return _eec.EECHistBaseLogLogId_set_variance_bound_includes_overflows(self, include)
+
+    def set_nbins(self, *args):
+        r"""
+        set_nbins(EECHistBaseLogLogId self, unsigned int n, unsigned int axis=0)
+        set_nbins(EECHistBaseLogLogId self, vectorUnsigned nbins)
+        """
+        return _eec.EECHistBaseLogLogId_set_nbins(self, *args)
+
+    def set_axis_range(self, range, axis=0):
+        r"""set_axis_range(EECHistBaseLogLogId self, arrayDouble2 range, unsigned int axis=0)"""
+        return _eec.EECHistBaseLogLogId_set_axis_range(self, range, axis)
+
+    def set_axes_range(self, ranges):
+        r"""set_axes_range(EECHistBaseLogLogId self, vectorArrayDouble2 ranges)"""
+        return _eec.EECHistBaseLogLogId_set_axes_range(self, ranges)
+
+    def bin_centers_vec(self, axis=0):
+        r"""bin_centers_vec(EECHistBaseLogLogId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseLogLogId_bin_centers_vec(self, axis)
+
+    def bin_edges_vec(self, axis=0):
+        r"""bin_edges_vec(EECHistBaseLogLogId self, unsigned int axis=0) -> vectorDouble"""
+        return _eec.EECHistBaseLogLogId_bin_edges_vec(self, axis)
+
+    def hist_size(self, overflows=True, axis=-1):
+        r"""hist_size(EECHistBaseLogLogId self, bool overflows=True, int axis=-1) -> std::size_t"""
+        return _eec.EECHistBaseLogLogId_hist_size(self, overflows, axis)
+
+    def covariance_size(self, overflows=True):
+        r"""covariance_size(EECHistBaseLogLogId self, bool overflows=True) -> std::size_t"""
+        return _eec.EECHistBaseLogLogId_covariance_size(self, overflows)
+
+    def event_count(self, thread=-1):
+        r"""event_count(EECHistBaseLogLogId self, int thread=-1) -> std::size_t"""
+        return _eec.EECHistBaseLogLogId_event_count(self, thread)
+
+    def clear_hists(self):
+        r"""clear_hists(EECHistBaseLogLogId self)"""
+        return _eec.EECHistBaseLogLogId_clear_hists(self)
+
+    def reduce(self, *args):
+        r"""
+        reduce(EECHistBaseLogLogId self, reduce_command rc)
+        reduce(EECHistBaseLogLogId self, vectorReduceCommand rcs)
+        """
+        return _eec.EECHistBaseLogLogId_reduce(self, *args)
+
+    def sum(self, hist_i=0):
+        r"""sum(EECHistBaseLogLogId self, unsigned int hist_i=0) -> double"""
+        return _eec.EECHistBaseLogLogId_sum(self, hist_i)
+
+    def diff_hists(self, other, hist_i=-1, overflows=True):
+        r"""diff_hists(EECHistBaseLogLogId self, EECHistBaseLogLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogLogId_diff_hists(self, other, hist_i, overflows)
+
+    def diff_covariances(self, other, hist_i=-1, overflows=True):
+        r"""diff_covariances(EECHistBaseLogLogId self, EECHistBaseLogLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogLogId_diff_covariances(self, other, hist_i, overflows)
+
+    def diff_variance_bounds(self, other, hist_i=-1, overflows=True):
+        r"""diff_variance_bounds(EECHistBaseLogLogId self, EECHistBaseLogLogId other, int hist_i=-1, bool overflows=True) -> double"""
+        return _eec.EECHistBaseLogLogId_diff_variance_bounds(self, other, hist_i, overflows)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECHistBaseLogLogId self, EECHistBaseLogLogId rhs) -> bool"""
+        return _eec.EECHistBaseLogLogId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECHistBaseLogLogId self, EECHistBaseLogLogId rhs) -> bool"""
+        return _eec.EECHistBaseLogLogId___eq__(self, rhs)
+
+    def hists_as_text(self, hist_level=3, overflows=True, precision=16, os=None):
+        r"""hists_as_text(EECHistBaseLogLogId self, int hist_level=3, bool overflows=True, int precision=16, std::ostream * os=None) -> std::string"""
+        return _eec.EECHistBaseLogLogId_hists_as_text(self, hist_level, overflows, precision, os)
+
+    def bin_centers(self, i=0):
+        r"""bin_centers(EECHistBaseLogLogId self, int i=0)"""
+        return _eec.EECHistBaseLogLogId_bin_centers(self, i)
+
+    def bin_edges(self, i=0):
+        r"""bin_edges(EECHistBaseLogLogId self, int i=0)"""
+        return _eec.EECHistBaseLogLogId_bin_edges(self, i)
+
+    def scale(self, x):
+        r"""scale(EECHistBaseLogLogId self, double x)"""
+        return _eec.EECHistBaseLogLogId_scale(self, x)
 
     def get_hist_errs(self, hist_i=0, overflows=True):
         hist, vars = self.get_hist_vars(hist_i, overflows)
@@ -863,7 +2344,10 @@ class EECHistBaseLogLogId(object):
 
 # Register EECHistBaseLogLogId in _eec:
 _eec.EECHistBaseLogLogId_swigregister(EECHistBaseLogLogId)
-EECHistBaseLogLogId_rank = _eec.EECHistBaseLogLogId_rank
+
+def EECHistBaseLogLogId_rank():
+    r"""EECHistBaseLogLogId_rank() -> unsigned int"""
+    return _eec.EECHistBaseLogLogId_rank()
 
 class EECHist1DId(EECHistBase1DId):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist1D< axis::id > class."""
@@ -874,16 +2358,39 @@ class EECHist1DId(EECHistBase1DId):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist1DId
-    hist_name = _swig_new_static_method(_eec.EECHist1DId_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist1DId_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist1DId_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist1DId_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist1DId_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist1DId_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist1DId_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist1DId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DId_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist1DId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DId_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist1DId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DId_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist1DId in _eec:
 _eec.EECHist1DId_swigregister(EECHist1DId)
-EECHist1DId_hist_name = _eec.EECHist1DId_hist_name
-EECHist1DId_axes_description = _eec.EECHist1DId_axes_description
+
+def EECHist1DId_hist_name():
+    r"""EECHist1DId_hist_name() -> std::string"""
+    return _eec.EECHist1DId_hist_name()
+
+def EECHist1DId_axes_description():
+    r"""EECHist1DId_axes_description() -> std::string"""
+    return _eec.EECHist1DId_axes_description()
 
 class EECHist1DLog(EECHistBase1DLog):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist1D< axis::log > class."""
@@ -894,16 +2401,39 @@ class EECHist1DLog(EECHistBase1DLog):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist1DLog
-    hist_name = _swig_new_static_method(_eec.EECHist1DLog_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist1DLog_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist1DLog_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist1DLog_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist1DLog_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist1DLog_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist1DLog_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist1DLog self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DLog_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist1DLog self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DLog_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist1DLog self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist1DLog_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist1DLog in _eec:
 _eec.EECHist1DLog_swigregister(EECHist1DLog)
-EECHist1DLog_hist_name = _eec.EECHist1DLog_hist_name
-EECHist1DLog_axes_description = _eec.EECHist1DLog_axes_description
+
+def EECHist1DLog_hist_name():
+    r"""EECHist1DLog_hist_name() -> std::string"""
+    return _eec.EECHist1DLog_hist_name()
+
+def EECHist1DLog_axes_description():
+    r"""EECHist1DLog_axes_description() -> std::string"""
+    return _eec.EECHist1DLog_axes_description()
 
 class EECHist3DIdIdId(EECHistBaseIdIdId):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist3D< axis::id,axis::id,axis::id > class."""
@@ -914,16 +2444,39 @@ class EECHist3DIdIdId(EECHistBaseIdIdId):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist3DIdIdId
-    hist_name = _swig_new_static_method(_eec.EECHist3DIdIdId_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist3DIdIdId_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist3DIdIdId_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist3DIdIdId_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist3DIdIdId_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist3DIdIdId_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist3DIdIdId_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist3DIdIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdIdId_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist3DIdIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdIdId_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist3DIdIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdIdId_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist3DIdIdId in _eec:
 _eec.EECHist3DIdIdId_swigregister(EECHist3DIdIdId)
-EECHist3DIdIdId_hist_name = _eec.EECHist3DIdIdId_hist_name
-EECHist3DIdIdId_axes_description = _eec.EECHist3DIdIdId_axes_description
+
+def EECHist3DIdIdId_hist_name():
+    r"""EECHist3DIdIdId_hist_name() -> std::string"""
+    return _eec.EECHist3DIdIdId_hist_name()
+
+def EECHist3DIdIdId_axes_description():
+    r"""EECHist3DIdIdId_axes_description() -> std::string"""
+    return _eec.EECHist3DIdIdId_axes_description()
 
 class EECHist3DLogIdId(EECHistBaseLogIdId):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist3D< axis::log,axis::id,axis::id > class."""
@@ -934,16 +2487,39 @@ class EECHist3DLogIdId(EECHistBaseLogIdId):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist3DLogIdId
-    hist_name = _swig_new_static_method(_eec.EECHist3DLogIdId_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist3DLogIdId_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist3DLogIdId_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist3DLogIdId_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist3DLogIdId_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist3DLogIdId_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist3DLogIdId_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist3DLogIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogIdId_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist3DLogIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogIdId_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist3DLogIdId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogIdId_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist3DLogIdId in _eec:
 _eec.EECHist3DLogIdId_swigregister(EECHist3DLogIdId)
-EECHist3DLogIdId_hist_name = _eec.EECHist3DLogIdId_hist_name
-EECHist3DLogIdId_axes_description = _eec.EECHist3DLogIdId_axes_description
+
+def EECHist3DLogIdId_hist_name():
+    r"""EECHist3DLogIdId_hist_name() -> std::string"""
+    return _eec.EECHist3DLogIdId_hist_name()
+
+def EECHist3DLogIdId_axes_description():
+    r"""EECHist3DLogIdId_axes_description() -> std::string"""
+    return _eec.EECHist3DLogIdId_axes_description()
 
 class EECHist3DIdLogId(EECHistBaseIdLogId):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist3D< axis::id,axis::log,axis::id > class."""
@@ -954,16 +2530,39 @@ class EECHist3DIdLogId(EECHistBaseIdLogId):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist3DIdLogId
-    hist_name = _swig_new_static_method(_eec.EECHist3DIdLogId_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist3DIdLogId_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist3DIdLogId_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist3DIdLogId_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist3DIdLogId_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist3DIdLogId_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist3DIdLogId_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist3DIdLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdLogId_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist3DIdLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdLogId_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist3DIdLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DIdLogId_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist3DIdLogId in _eec:
 _eec.EECHist3DIdLogId_swigregister(EECHist3DIdLogId)
-EECHist3DIdLogId_hist_name = _eec.EECHist3DIdLogId_hist_name
-EECHist3DIdLogId_axes_description = _eec.EECHist3DIdLogId_axes_description
+
+def EECHist3DIdLogId_hist_name():
+    r"""EECHist3DIdLogId_hist_name() -> std::string"""
+    return _eec.EECHist3DIdLogId_hist_name()
+
+def EECHist3DIdLogId_axes_description():
+    r"""EECHist3DIdLogId_axes_description() -> std::string"""
+    return _eec.EECHist3DIdLogId_axes_description()
 
 class EECHist3DLogLogId(EECHistBaseLogLogId):
     r"""Proxy of C++ fastjet::contrib::eec::hist::EECHist3D< axis::log,axis::log,axis::id > class."""
@@ -974,16 +2573,39 @@ class EECHist3DLogLogId(EECHistBaseLogLogId):
         raise AttributeError("No constructor defined")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECHist3DLogLogId
-    hist_name = _swig_new_static_method(_eec.EECHist3DLogLogId_hist_name)
-    axes_description = _swig_new_static_method(_eec.EECHist3DLogLogId_axes_description)
-    get_hist_vars = _swig_new_instance_method(_eec.EECHist3DLogLogId_get_hist_vars)
-    get_covariance = _swig_new_instance_method(_eec.EECHist3DLogLogId_get_covariance)
-    get_variance_bound = _swig_new_instance_method(_eec.EECHist3DLogLogId_get_variance_bound)
+
+    @staticmethod
+    def hist_name():
+        r"""hist_name() -> std::string"""
+        return _eec.EECHist3DLogLogId_hist_name()
+
+    @staticmethod
+    def axes_description():
+        r"""axes_description() -> std::string"""
+        return _eec.EECHist3DLogLogId_axes_description()
+
+    def get_hist_vars(self, hist_i=0, overflows=True):
+        r"""get_hist_vars(EECHist3DLogLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogLogId_get_hist_vars(self, hist_i, overflows)
+
+    def get_covariance(self, hist_i=0, overflows=True):
+        r"""get_covariance(EECHist3DLogLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogLogId_get_covariance(self, hist_i, overflows)
+
+    def get_variance_bound(self, hist_i=0, overflows=True):
+        r"""get_variance_bound(EECHist3DLogLogId self, unsigned int hist_i=0, bool overflows=True)"""
+        return _eec.EECHist3DLogLogId_get_variance_bound(self, hist_i, overflows)
 
 # Register EECHist3DLogLogId in _eec:
 _eec.EECHist3DLogLogId_swigregister(EECHist3DLogLogId)
-EECHist3DLogLogId_hist_name = _eec.EECHist3DLogLogId_hist_name
-EECHist3DLogLogId_axes_description = _eec.EECHist3DLogLogId_axes_description
+
+def EECHist3DLogLogId_hist_name():
+    r"""EECHist3DLogLogId_hist_name() -> std::string"""
+    return _eec.EECHist3DLogLogId_hist_name()
+
+def EECHist3DLogLogId_axes_description():
+    r"""EECHist3DLogLogId_axes_description() -> std::string"""
+    return _eec.EECHist3DLogLogId_axes_description()
 
 class EECBase(object):
     r"""Proxy of C++ fastjet::contrib::eec::EECBase class."""
@@ -994,55 +2616,149 @@ class EECBase(object):
         raise AttributeError("No constructor defined - class is abstract")
     __repr__ = _swig_repr
     __swig_destroy__ = _eec.delete_EECBase
-    _compute = _swig_new_instance_method(_eec.EECBase__compute)
-    _push_back = _swig_new_instance_method(_eec.EECBase__push_back)
-    clear_events = _swig_new_instance_method(_eec.EECBase_clear_events)
-    batch_compute = _swig_new_instance_method(_eec.EECBase_batch_compute)
-    config = _swig_new_instance_method(_eec.EECBase_config)
-    compname = _swig_new_instance_method(_eec.EECBase_compname)
-    N = _swig_new_instance_method(_eec.EECBase_N)
-    nfeatures = _swig_new_instance_method(_eec.EECBase_nfeatures)
-    nsym = _swig_new_instance_method(_eec.EECBase_nsym)
-    weight_powers = _swig_new_instance_method(_eec.EECBase_weight_powers)
-    charge_powers = _swig_new_instance_method(_eec.EECBase_charge_powers)
-    norm = _swig_new_instance_method(_eec.EECBase_norm)
-    use_charges = _swig_new_instance_method(_eec.EECBase_use_charges)
-    check_degen = _swig_new_instance_method(_eec.EECBase_check_degen)
-    average_verts = _swig_new_instance_method(_eec.EECBase_average_verts)
-    num_threads = _swig_new_instance_method(_eec.EECBase_num_threads)
-    omp_chunksize = _swig_new_instance_method(_eec.EECBase_omp_chunksize)
-    print_every = _swig_new_instance_method(_eec.EECBase_print_every)
-    total_weight = _swig_new_instance_method(_eec.EECBase_total_weight)
-    particle_weight = _swig_new_instance_method(_eec.EECBase_particle_weight)
-    pairwise_distance = _swig_new_instance_method(_eec.EECBase_pairwise_distance)
-    set_weight_powers = _swig_new_instance_method(_eec.EECBase_set_weight_powers)
-    set_charge_powers = _swig_new_instance_method(_eec.EECBase_set_charge_powers)
-    set_norm = _swig_new_instance_method(_eec.EECBase_set_norm)
-    set_check_degen = _swig_new_instance_method(_eec.EECBase_set_check_degen)
-    set_average_verts = _swig_new_instance_method(_eec.EECBase_set_average_verts)
-    set_num_threads = _swig_new_instance_method(_eec.EECBase_set_num_threads)
-    set_omp_chunksize = _swig_new_instance_method(_eec.EECBase_set_omp_chunksize)
-    set_print_every = _swig_new_instance_method(_eec.EECBase_set_print_every)
-    set_particle_weight = _swig_new_instance_method(_eec.EECBase_set_particle_weight)
-    set_pairwise_distance = _swig_new_instance_method(_eec.EECBase_set_pairwise_distance)
-    __ne__ = _swig_new_instance_method(_eec.EECBase___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECBase___eq__)
+
+    def _compute(self, *args):
+        r"""
+        _compute(EECBase self, vectorPJ pjs, vectorDouble charges={}, double event_weight=1, int thread=0)
+        _compute(EECBase self, double const * raw_weights, double const * dists, double const * charges, double event_weight=1, int thread=0)
+        _compute(EECBase self, double const * event_ptr, double event_weight=1, int thread=0)
+        """
+        return _eec.EECBase__compute(self, *args)
+
+    def _push_back(self, *args):
+        r"""
+        _push_back(EECBase self, vectorPJ pjs, vectorDouble charges={}, double event_weight=1)
+        _push_back(EECBase self, double const * raw_weights, double const * dists, double const * charges, double event_weight=1)
+        _push_back(EECBase self, double const * event_ptr, double event_weight=1)
+        """
+        return _eec.EECBase__push_back(self, *args)
+
+    def clear_events(self):
+        r"""clear_events(EECBase self)"""
+        return _eec.EECBase_clear_events(self)
+
+    def batch_compute(self):
+        r"""batch_compute(EECBase self)"""
+        return _eec.EECBase_batch_compute(self)
+
+    def config(self):
+        r"""config(EECBase self) -> EECConfig const &"""
+        return _eec.EECBase_config(self)
+
+    def compname(self):
+        r"""compname(EECBase self) -> std::string const &"""
+        return _eec.EECBase_compname(self)
+
+    def N(self):
+        r"""N(EECBase self) -> unsigned int"""
+        return _eec.EECBase_N(self)
+
+    def nfeatures(self):
+        r"""nfeatures(EECBase self) -> unsigned int"""
+        return _eec.EECBase_nfeatures(self)
+
+    def nsym(self):
+        r"""nsym(EECBase self) -> unsigned int"""
+        return _eec.EECBase_nsym(self)
+
+    def weight_powers(self):
+        r"""weight_powers(EECBase self) -> vectorDouble"""
+        return _eec.EECBase_weight_powers(self)
+
+    def charge_powers(self):
+        r"""charge_powers(EECBase self) -> vectorUnsigned"""
+        return _eec.EECBase_charge_powers(self)
+
+    def norm(self):
+        r"""norm(EECBase self) -> bool"""
+        return _eec.EECBase_norm(self)
+
+    def use_charges(self):
+        r"""use_charges(EECBase self) -> bool"""
+        return _eec.EECBase_use_charges(self)
+
+    def check_degen(self):
+        r"""check_degen(EECBase self) -> bool"""
+        return _eec.EECBase_check_degen(self)
+
+    def average_verts(self):
+        r"""average_verts(EECBase self) -> bool"""
+        return _eec.EECBase_average_verts(self)
+
+    def num_threads(self):
+        r"""num_threads(EECBase self) -> int"""
+        return _eec.EECBase_num_threads(self)
+
+    def omp_chunksize(self):
+        r"""omp_chunksize(EECBase self) -> int"""
+        return _eec.EECBase_omp_chunksize(self)
+
+    def print_every(self):
+        r"""print_every(EECBase self) -> long"""
+        return _eec.EECBase_print_every(self)
+
+    def total_weight(self):
+        r"""total_weight(EECBase self) -> double"""
+        return _eec.EECBase_total_weight(self)
+
+    def particle_weight(self):
+        r"""particle_weight(EECBase self) -> fastjet::contrib::eec::ParticleWeight"""
+        return _eec.EECBase_particle_weight(self)
+
+    def pairwise_distance(self):
+        r"""pairwise_distance(EECBase self) -> fastjet::contrib::eec::PairwiseDistance"""
+        return _eec.EECBase_pairwise_distance(self)
+
+    def set_weight_powers(self, wps, _in_constructor=False):
+        r"""set_weight_powers(EECBase self, vectorDouble wps, bool _in_constructor=False)"""
+        return _eec.EECBase_set_weight_powers(self, wps, _in_constructor)
+
+    def set_charge_powers(self, cps, _in_constructor=False):
+        r"""set_charge_powers(EECBase self, vectorUnsigned cps, bool _in_constructor=False)"""
+        return _eec.EECBase_set_charge_powers(self, cps, _in_constructor)
+
+    def set_norm(self, n):
+        r"""set_norm(EECBase self, bool n)"""
+        return _eec.EECBase_set_norm(self, n)
+
+    def set_check_degen(self, check):
+        r"""set_check_degen(EECBase self, bool check)"""
+        return _eec.EECBase_set_check_degen(self, check)
+
+    def set_average_verts(self, averts):
+        r"""set_average_verts(EECBase self, bool averts)"""
+        return _eec.EECBase_set_average_verts(self, averts)
+
+    def set_num_threads(self, nthreads):
+        r"""set_num_threads(EECBase self, int nthreads)"""
+        return _eec.EECBase_set_num_threads(self, nthreads)
+
+    def set_omp_chunksize(self, chunksize):
+        r"""set_omp_chunksize(EECBase self, int chunksize)"""
+        return _eec.EECBase_set_omp_chunksize(self, chunksize)
+
+    def set_print_every(self, print_every):
+        r"""set_print_every(EECBase self, long print_every)"""
+        return _eec.EECBase_set_print_every(self, print_every)
+
+    def set_particle_weight(self, pw):
+        r"""set_particle_weight(EECBase self, fastjet::contrib::eec::ParticleWeight pw)"""
+        return _eec.EECBase_set_particle_weight(self, pw)
+
+    def set_pairwise_distance(self, pd):
+        r"""set_pairwise_distance(EECBase self, fastjet::contrib::eec::PairwiseDistance pd)"""
+        return _eec.EECBase_set_pairwise_distance(self, pd)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECBase self, EECBase rhs) -> bool"""
+        return _eec.EECBase___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECBase self, EECBase rhs) -> bool"""
+        return _eec.EECBase___eq__(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-
-    def __getstate__(self):
-        return (self.__getstate_internal__(),)
-
-    def __setstate__(self, state):
-        self.__init__(*self._default_args)
-        try:
-            self.__setstate_internal__(state[0])
-        except Exception as e:
-            raise RuntimeError('issue loading eec - check `eec.get_archive_format()`'
-                               ' and `eec.get_compression_mode()`',
-                               repr(e))
+        return self.description()
 
 
 
@@ -1129,19 +2845,31 @@ class EECBase(object):
 # Register EECBase in _eec:
 _eec.EECBase_swigregister(EECBase)
 
-multinomial = _eec.multinomial
+
+def multinomial(inds):
+    r"""multinomial(vectorUnsigned inds) -> unsigned int"""
+    return _eec.multinomial(inds)
 class DynamicMultinomial(object):
     r"""Proxy of C++ fastjet::contrib::eec::DynamicMultinomial class."""
 
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, N: "unsigned int"):
+    def __init__(self, N):
         r"""__init__(DynamicMultinomial self, unsigned int N) -> DynamicMultinomial"""
         _eec.DynamicMultinomial_swiginit(self, _eec.new_DynamicMultinomial(N))
-    N = _swig_new_instance_method(_eec.DynamicMultinomial_N)
-    set_index = _swig_new_instance_method(_eec.DynamicMultinomial_set_index)
-    value = _swig_new_instance_method(_eec.DynamicMultinomial_value)
+
+    def N(self):
+        r"""N(DynamicMultinomial self) -> unsigned int"""
+        return _eec.DynamicMultinomial_N(self)
+
+    def set_index(self, i, ind):
+        r"""set_index(DynamicMultinomial self, unsigned int i, unsigned int ind)"""
+        return _eec.DynamicMultinomial_set_index(self, i, ind)
+
+    def value(self):
+        r"""value(DynamicMultinomial self) -> std::size_t"""
+        return _eec.DynamicMultinomial_value(self)
     __swig_destroy__ = _eec.delete_DynamicMultinomial
 
 # Register DynamicMultinomial in _eec:
@@ -1173,19 +2901,47 @@ class Multinomial2(object):
     def __init__(self):
         r"""__init__(Multinomial2 self) -> Multinomial2"""
         _eec.Multinomial2_swiginit(self, _eec.new_Multinomial2())
-    N = _swig_new_static_method(_eec.Multinomial2_N)
-    set_index_0 = _swig_new_instance_method(_eec.Multinomial2_set_index_0)
-    set_index_final = _swig_new_instance_method(_eec.Multinomial2_set_index_final)
-    value = _swig_new_instance_method(_eec.Multinomial2_value)
-    set_index_1 = _swig_new_instance_method(_eec.Multinomial2_set_index_1)
-    set_index_2 = _swig_new_instance_method(_eec.Multinomial2_set_index_2)
-    set_index_3 = _swig_new_instance_method(_eec.Multinomial2_set_index_3)
-    set_index_4 = _swig_new_instance_method(_eec.Multinomial2_set_index_4)
+
+    @staticmethod
+    def N():
+        r"""N() -> unsigned int"""
+        return _eec.Multinomial2_N()
+
+    def set_index_0(self, ind):
+        r"""set_index_0(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_0(self, ind)
+
+    def set_index_final(self, ind):
+        r"""set_index_final(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_final(self, ind)
+
+    def value(self):
+        r"""value(Multinomial2 self) -> unsigned int"""
+        return _eec.Multinomial2_value(self)
+
+    def set_index_1(self, ind):
+        r"""set_index_1(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_1(self, ind)
+
+    def set_index_2(self, ind):
+        r"""set_index_2(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_2(self, ind)
+
+    def set_index_3(self, ind):
+        r"""set_index_3(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_3(self, ind)
+
+    def set_index_4(self, ind):
+        r"""set_index_4(Multinomial2 self, unsigned int ind)"""
+        return _eec.Multinomial2_set_index_4(self, ind)
     __swig_destroy__ = _eec.delete_Multinomial2
 
 # Register Multinomial2 in _eec:
 _eec.Multinomial2_swigregister(Multinomial2)
-Multinomial2_N = _eec.Multinomial2_N
+
+def Multinomial2_N():
+    r"""Multinomial2_N() -> unsigned int"""
+    return _eec.Multinomial2_N()
 
 class Multinomial3(object):
     r"""Proxy of C++ fastjet::contrib::eec::Multinomial< 3 > class."""
@@ -1196,19 +2952,47 @@ class Multinomial3(object):
     def __init__(self):
         r"""__init__(Multinomial3 self) -> Multinomial3"""
         _eec.Multinomial3_swiginit(self, _eec.new_Multinomial3())
-    N = _swig_new_static_method(_eec.Multinomial3_N)
-    set_index_0 = _swig_new_instance_method(_eec.Multinomial3_set_index_0)
-    set_index_final = _swig_new_instance_method(_eec.Multinomial3_set_index_final)
-    value = _swig_new_instance_method(_eec.Multinomial3_value)
-    set_index_1 = _swig_new_instance_method(_eec.Multinomial3_set_index_1)
-    set_index_2 = _swig_new_instance_method(_eec.Multinomial3_set_index_2)
-    set_index_3 = _swig_new_instance_method(_eec.Multinomial3_set_index_3)
-    set_index_4 = _swig_new_instance_method(_eec.Multinomial3_set_index_4)
+
+    @staticmethod
+    def N():
+        r"""N() -> unsigned int"""
+        return _eec.Multinomial3_N()
+
+    def set_index_0(self, ind):
+        r"""set_index_0(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_0(self, ind)
+
+    def set_index_final(self, ind):
+        r"""set_index_final(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_final(self, ind)
+
+    def value(self):
+        r"""value(Multinomial3 self) -> unsigned int"""
+        return _eec.Multinomial3_value(self)
+
+    def set_index_1(self, ind):
+        r"""set_index_1(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_1(self, ind)
+
+    def set_index_2(self, ind):
+        r"""set_index_2(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_2(self, ind)
+
+    def set_index_3(self, ind):
+        r"""set_index_3(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_3(self, ind)
+
+    def set_index_4(self, ind):
+        r"""set_index_4(Multinomial3 self, unsigned int ind)"""
+        return _eec.Multinomial3_set_index_4(self, ind)
     __swig_destroy__ = _eec.delete_Multinomial3
 
 # Register Multinomial3 in _eec:
 _eec.Multinomial3_swigregister(Multinomial3)
-Multinomial3_N = _eec.Multinomial3_N
+
+def Multinomial3_N():
+    r"""Multinomial3_N() -> unsigned int"""
+    return _eec.Multinomial3_N()
 
 class Multinomial4(object):
     r"""Proxy of C++ fastjet::contrib::eec::Multinomial< 4 > class."""
@@ -1219,19 +3003,47 @@ class Multinomial4(object):
     def __init__(self):
         r"""__init__(Multinomial4 self) -> Multinomial4"""
         _eec.Multinomial4_swiginit(self, _eec.new_Multinomial4())
-    N = _swig_new_static_method(_eec.Multinomial4_N)
-    set_index_0 = _swig_new_instance_method(_eec.Multinomial4_set_index_0)
-    set_index_final = _swig_new_instance_method(_eec.Multinomial4_set_index_final)
-    value = _swig_new_instance_method(_eec.Multinomial4_value)
-    set_index_1 = _swig_new_instance_method(_eec.Multinomial4_set_index_1)
-    set_index_2 = _swig_new_instance_method(_eec.Multinomial4_set_index_2)
-    set_index_3 = _swig_new_instance_method(_eec.Multinomial4_set_index_3)
-    set_index_4 = _swig_new_instance_method(_eec.Multinomial4_set_index_4)
+
+    @staticmethod
+    def N():
+        r"""N() -> unsigned int"""
+        return _eec.Multinomial4_N()
+
+    def set_index_0(self, ind):
+        r"""set_index_0(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_0(self, ind)
+
+    def set_index_final(self, ind):
+        r"""set_index_final(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_final(self, ind)
+
+    def value(self):
+        r"""value(Multinomial4 self) -> unsigned int"""
+        return _eec.Multinomial4_value(self)
+
+    def set_index_1(self, ind):
+        r"""set_index_1(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_1(self, ind)
+
+    def set_index_2(self, ind):
+        r"""set_index_2(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_2(self, ind)
+
+    def set_index_3(self, ind):
+        r"""set_index_3(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_3(self, ind)
+
+    def set_index_4(self, ind):
+        r"""set_index_4(Multinomial4 self, unsigned int ind)"""
+        return _eec.Multinomial4_set_index_4(self, ind)
     __swig_destroy__ = _eec.delete_Multinomial4
 
 # Register Multinomial4 in _eec:
 _eec.Multinomial4_swigregister(Multinomial4)
-Multinomial4_N = _eec.Multinomial4_N
+
+def Multinomial4_N():
+    r"""Multinomial4_N() -> unsigned int"""
+    return _eec.Multinomial4_N()
 
 class Multinomial5(object):
     r"""Proxy of C++ fastjet::contrib::eec::Multinomial< 5 > class."""
@@ -1242,19 +3054,47 @@ class Multinomial5(object):
     def __init__(self):
         r"""__init__(Multinomial5 self) -> Multinomial5"""
         _eec.Multinomial5_swiginit(self, _eec.new_Multinomial5())
-    N = _swig_new_static_method(_eec.Multinomial5_N)
-    set_index_0 = _swig_new_instance_method(_eec.Multinomial5_set_index_0)
-    set_index_final = _swig_new_instance_method(_eec.Multinomial5_set_index_final)
-    value = _swig_new_instance_method(_eec.Multinomial5_value)
-    set_index_1 = _swig_new_instance_method(_eec.Multinomial5_set_index_1)
-    set_index_2 = _swig_new_instance_method(_eec.Multinomial5_set_index_2)
-    set_index_3 = _swig_new_instance_method(_eec.Multinomial5_set_index_3)
-    set_index_4 = _swig_new_instance_method(_eec.Multinomial5_set_index_4)
+
+    @staticmethod
+    def N():
+        r"""N() -> unsigned int"""
+        return _eec.Multinomial5_N()
+
+    def set_index_0(self, ind):
+        r"""set_index_0(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_0(self, ind)
+
+    def set_index_final(self, ind):
+        r"""set_index_final(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_final(self, ind)
+
+    def value(self):
+        r"""value(Multinomial5 self) -> unsigned int"""
+        return _eec.Multinomial5_value(self)
+
+    def set_index_1(self, ind):
+        r"""set_index_1(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_1(self, ind)
+
+    def set_index_2(self, ind):
+        r"""set_index_2(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_2(self, ind)
+
+    def set_index_3(self, ind):
+        r"""set_index_3(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_3(self, ind)
+
+    def set_index_4(self, ind):
+        r"""set_index_4(Multinomial5 self, unsigned int ind)"""
+        return _eec.Multinomial5_set_index_4(self, ind)
     __swig_destroy__ = _eec.delete_Multinomial5
 
 # Register Multinomial5 in _eec:
 _eec.Multinomial5_swigregister(Multinomial5)
-Multinomial5_N = _eec.Multinomial5_N
+
+def Multinomial5_N():
+    r"""Multinomial5_N() -> unsigned int"""
+    return _eec.Multinomial5_N()
 
 class Multinomial6(object):
     r"""Proxy of C++ fastjet::contrib::eec::Multinomial< 6 > class."""
@@ -1265,19 +3105,47 @@ class Multinomial6(object):
     def __init__(self):
         r"""__init__(Multinomial6 self) -> Multinomial6"""
         _eec.Multinomial6_swiginit(self, _eec.new_Multinomial6())
-    N = _swig_new_static_method(_eec.Multinomial6_N)
-    set_index_0 = _swig_new_instance_method(_eec.Multinomial6_set_index_0)
-    set_index_final = _swig_new_instance_method(_eec.Multinomial6_set_index_final)
-    value = _swig_new_instance_method(_eec.Multinomial6_value)
-    set_index_1 = _swig_new_instance_method(_eec.Multinomial6_set_index_1)
-    set_index_2 = _swig_new_instance_method(_eec.Multinomial6_set_index_2)
-    set_index_3 = _swig_new_instance_method(_eec.Multinomial6_set_index_3)
-    set_index_4 = _swig_new_instance_method(_eec.Multinomial6_set_index_4)
+
+    @staticmethod
+    def N():
+        r"""N() -> unsigned int"""
+        return _eec.Multinomial6_N()
+
+    def set_index_0(self, ind):
+        r"""set_index_0(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_0(self, ind)
+
+    def set_index_final(self, ind):
+        r"""set_index_final(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_final(self, ind)
+
+    def value(self):
+        r"""value(Multinomial6 self) -> unsigned int"""
+        return _eec.Multinomial6_value(self)
+
+    def set_index_1(self, ind):
+        r"""set_index_1(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_1(self, ind)
+
+    def set_index_2(self, ind):
+        r"""set_index_2(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_2(self, ind)
+
+    def set_index_3(self, ind):
+        r"""set_index_3(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_3(self, ind)
+
+    def set_index_4(self, ind):
+        r"""set_index_4(Multinomial6 self, unsigned int ind)"""
+        return _eec.Multinomial6_set_index_4(self, ind)
     __swig_destroy__ = _eec.delete_Multinomial6
 
 # Register Multinomial6 in _eec:
 _eec.Multinomial6_swigregister(Multinomial6)
-Multinomial6_N = _eec.Multinomial6_N
+
+def Multinomial6_N():
+    r"""Multinomial6_N() -> unsigned int"""
+    return _eec.Multinomial6_N()
 
 class EECLongestSideId(EECBase, EECHist1DId):
     r"""Proxy of C++ fastjet::contrib::eec::EECLongestSide< axis::id > class."""
@@ -1285,26 +3153,45 @@ class EECLongestSideId(EECBase, EECHist1DId):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECLongestSideId self, unsigned int N, unsigned int nbins, arrayDouble2 axis_range={1e-5, 1}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=True, bool variance_bound=True, bool variance_bound_includes_overflows=True, bool use_general_eNc=False) -> EECLongestSideId"""
-        _eec.EECLongestSideId_swiginit(self, _eec.new_EECLongestSideId(*args, **kwargs))
+        _eec.EECLongestSideId_swiginit(self, _eec.new_EECLongestSideId(*args))
     __swig_destroy__ = _eec.delete_EECLongestSideId
-    use_general_eNc = _swig_new_instance_method(_eec.EECLongestSideId_use_general_eNc)
-    set_use_general_eNc = _swig_new_instance_method(_eec.EECLongestSideId_set_use_general_eNc)
-    set_num_threads = _swig_new_instance_method(_eec.EECLongestSideId_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECLongestSideId_description)
-    __ne__ = _swig_new_instance_method(_eec.EECLongestSideId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECLongestSideId___eq__)
-    clear = _swig_new_instance_method(_eec.EECLongestSideId_clear)
-    add = _swig_new_instance_method(_eec.EECLongestSideId_add)
+
+    def use_general_eNc(self):
+        r"""use_general_eNc(EECLongestSideId self) -> bool"""
+        return _eec.EECLongestSideId_use_general_eNc(self)
+
+    def set_use_general_eNc(self, general):
+        r"""set_use_general_eNc(EECLongestSideId self, bool general)"""
+        return _eec.EECLongestSideId_set_use_general_eNc(self, general)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECLongestSideId self, int threads)"""
+        return _eec.EECLongestSideId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECLongestSideId self, int hist_level=1) -> std::string"""
+        return _eec.EECLongestSideId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECLongestSideId self, EECLongestSideId rhs) -> bool"""
+        return _eec.EECLongestSideId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECLongestSideId self, EECLongestSideId rhs) -> bool"""
+        return _eec.EECLongestSideId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECLongestSideId self)"""
+        return _eec.EECLongestSideId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECLongestSideId self, EECLongestSideId rhs)"""
+        return _eec.EECLongestSideId_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECLongestSideId___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECLongestSideId___setstate_internal__)
-
-    _default_args = (2, 1)
+        return self.description()
 
 
 # Register EECLongestSideId in _eec:
@@ -1316,26 +3203,45 @@ class EECLongestSideLog(EECBase, EECHist1DLog):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECLongestSideLog self, unsigned int N, unsigned int nbins, arrayDouble2 axis_range={1e-5, 1}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=True, bool variance_bound=True, bool variance_bound_includes_overflows=True, bool use_general_eNc=False) -> EECLongestSideLog"""
-        _eec.EECLongestSideLog_swiginit(self, _eec.new_EECLongestSideLog(*args, **kwargs))
+        _eec.EECLongestSideLog_swiginit(self, _eec.new_EECLongestSideLog(*args))
     __swig_destroy__ = _eec.delete_EECLongestSideLog
-    use_general_eNc = _swig_new_instance_method(_eec.EECLongestSideLog_use_general_eNc)
-    set_use_general_eNc = _swig_new_instance_method(_eec.EECLongestSideLog_set_use_general_eNc)
-    set_num_threads = _swig_new_instance_method(_eec.EECLongestSideLog_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECLongestSideLog_description)
-    __ne__ = _swig_new_instance_method(_eec.EECLongestSideLog___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECLongestSideLog___eq__)
-    clear = _swig_new_instance_method(_eec.EECLongestSideLog_clear)
-    add = _swig_new_instance_method(_eec.EECLongestSideLog_add)
+
+    def use_general_eNc(self):
+        r"""use_general_eNc(EECLongestSideLog self) -> bool"""
+        return _eec.EECLongestSideLog_use_general_eNc(self)
+
+    def set_use_general_eNc(self, general):
+        r"""set_use_general_eNc(EECLongestSideLog self, bool general)"""
+        return _eec.EECLongestSideLog_set_use_general_eNc(self, general)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECLongestSideLog self, int threads)"""
+        return _eec.EECLongestSideLog_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECLongestSideLog self, int hist_level=1) -> std::string"""
+        return _eec.EECLongestSideLog_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECLongestSideLog self, EECLongestSideLog rhs) -> bool"""
+        return _eec.EECLongestSideLog___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECLongestSideLog self, EECLongestSideLog rhs) -> bool"""
+        return _eec.EECLongestSideLog___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECLongestSideLog self)"""
+        return _eec.EECLongestSideLog_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECLongestSideLog self, EECLongestSideLog rhs)"""
+        return _eec.EECLongestSideLog_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECLongestSideLog___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECLongestSideLog___setstate_internal__)
-
-    _default_args = (2, 1)
+        return self.description()
 
 
 # Register EECLongestSideLog in _eec:
@@ -1347,24 +3253,37 @@ class EECTriangleOPEIdIdId(EECBase, EECHist3DIdIdId):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECTriangleOPEIdIdId self, arrayUnsigned3 nbins, arrayPairDoubleDouble axes_range={{{1e-5, 1}, {1e-5, 1}, {0, PI/2}}}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=False, bool variance_bound=True, bool variance_bound_includes_overflows=True) -> EECTriangleOPEIdIdId"""
-        _eec.EECTriangleOPEIdIdId_swiginit(self, _eec.new_EECTriangleOPEIdIdId(*args, **kwargs))
+        _eec.EECTriangleOPEIdIdId_swiginit(self, _eec.new_EECTriangleOPEIdIdId(*args))
     __swig_destroy__ = _eec.delete_EECTriangleOPEIdIdId
-    set_num_threads = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId_description)
-    __ne__ = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId___eq__)
-    clear = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId_clear)
-    add = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId_add)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTriangleOPEIdIdId self, int threads)"""
+        return _eec.EECTriangleOPEIdIdId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTriangleOPEIdIdId self, int hist_level=1) -> std::string"""
+        return _eec.EECTriangleOPEIdIdId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTriangleOPEIdIdId self, EECTriangleOPEIdIdId rhs) -> bool"""
+        return _eec.EECTriangleOPEIdIdId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTriangleOPEIdIdId self, EECTriangleOPEIdIdId rhs) -> bool"""
+        return _eec.EECTriangleOPEIdIdId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTriangleOPEIdIdId self)"""
+        return _eec.EECTriangleOPEIdIdId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTriangleOPEIdIdId self, EECTriangleOPEIdIdId rhs)"""
+        return _eec.EECTriangleOPEIdIdId_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPEIdIdId___setstate_internal__)
-
-    _default_args = ((1, 1, 1),)
+        return self.description()
 
 
 # Register EECTriangleOPEIdIdId in _eec:
@@ -1376,24 +3295,37 @@ class EECTriangleOPELogIdId(EECBase, EECHist3DLogIdId):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECTriangleOPELogIdId self, arrayUnsigned3 nbins, arrayPairDoubleDouble axes_range={{{1e-5, 1}, {1e-5, 1}, {0, PI/2}}}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=False, bool variance_bound=True, bool variance_bound_includes_overflows=True) -> EECTriangleOPELogIdId"""
-        _eec.EECTriangleOPELogIdId_swiginit(self, _eec.new_EECTriangleOPELogIdId(*args, **kwargs))
+        _eec.EECTriangleOPELogIdId_swiginit(self, _eec.new_EECTriangleOPELogIdId(*args))
     __swig_destroy__ = _eec.delete_EECTriangleOPELogIdId
-    set_num_threads = _swig_new_instance_method(_eec.EECTriangleOPELogIdId_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECTriangleOPELogIdId_description)
-    __ne__ = _swig_new_instance_method(_eec.EECTriangleOPELogIdId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECTriangleOPELogIdId___eq__)
-    clear = _swig_new_instance_method(_eec.EECTriangleOPELogIdId_clear)
-    add = _swig_new_instance_method(_eec.EECTriangleOPELogIdId_add)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTriangleOPELogIdId self, int threads)"""
+        return _eec.EECTriangleOPELogIdId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTriangleOPELogIdId self, int hist_level=1) -> std::string"""
+        return _eec.EECTriangleOPELogIdId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTriangleOPELogIdId self, EECTriangleOPELogIdId rhs) -> bool"""
+        return _eec.EECTriangleOPELogIdId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTriangleOPELogIdId self, EECTriangleOPELogIdId rhs) -> bool"""
+        return _eec.EECTriangleOPELogIdId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTriangleOPELogIdId self)"""
+        return _eec.EECTriangleOPELogIdId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTriangleOPELogIdId self, EECTriangleOPELogIdId rhs)"""
+        return _eec.EECTriangleOPELogIdId_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPELogIdId___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPELogIdId___setstate_internal__)
-
-    _default_args = ((1, 1, 1),)
+        return self.description()
 
 
 # Register EECTriangleOPELogIdId in _eec:
@@ -1405,24 +3337,37 @@ class EECTriangleOPEIdLogId(EECBase, EECHist3DIdLogId):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECTriangleOPEIdLogId self, arrayUnsigned3 nbins, arrayPairDoubleDouble axes_range={{{1e-5, 1}, {1e-5, 1}, {0, PI/2}}}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=False, bool variance_bound=True, bool variance_bound_includes_overflows=True) -> EECTriangleOPEIdLogId"""
-        _eec.EECTriangleOPEIdLogId_swiginit(self, _eec.new_EECTriangleOPEIdLogId(*args, **kwargs))
+        _eec.EECTriangleOPEIdLogId_swiginit(self, _eec.new_EECTriangleOPEIdLogId(*args))
     __swig_destroy__ = _eec.delete_EECTriangleOPEIdLogId
-    set_num_threads = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId_description)
-    __ne__ = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId___eq__)
-    clear = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId_clear)
-    add = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId_add)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTriangleOPEIdLogId self, int threads)"""
+        return _eec.EECTriangleOPEIdLogId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTriangleOPEIdLogId self, int hist_level=1) -> std::string"""
+        return _eec.EECTriangleOPEIdLogId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTriangleOPEIdLogId self, EECTriangleOPEIdLogId rhs) -> bool"""
+        return _eec.EECTriangleOPEIdLogId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTriangleOPEIdLogId self, EECTriangleOPEIdLogId rhs) -> bool"""
+        return _eec.EECTriangleOPEIdLogId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTriangleOPEIdLogId self)"""
+        return _eec.EECTriangleOPEIdLogId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTriangleOPEIdLogId self, EECTriangleOPEIdLogId rhs)"""
+        return _eec.EECTriangleOPEIdLogId_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPEIdLogId___setstate_internal__)
-
-    _default_args = ((1, 1, 1),)
+        return self.description()
 
 
 # Register EECTriangleOPEIdLogId in _eec:
@@ -1434,28 +3379,141 @@ class EECTriangleOPELogLogId(EECBase, EECHist3DLogLogId):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args):
         r"""__init__(EECTriangleOPELogLogId self, arrayUnsigned3 nbins, arrayPairDoubleDouble axes_range={{{1e-5, 1}, {1e-5, 1}, {0, PI/2}}}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=False, bool variance_bound=True, bool variance_bound_includes_overflows=True) -> EECTriangleOPELogLogId"""
-        _eec.EECTriangleOPELogLogId_swiginit(self, _eec.new_EECTriangleOPELogLogId(*args, **kwargs))
+        _eec.EECTriangleOPELogLogId_swiginit(self, _eec.new_EECTriangleOPELogLogId(*args))
     __swig_destroy__ = _eec.delete_EECTriangleOPELogLogId
-    set_num_threads = _swig_new_instance_method(_eec.EECTriangleOPELogLogId_set_num_threads)
-    description = _swig_new_instance_method(_eec.EECTriangleOPELogLogId_description)
-    __ne__ = _swig_new_instance_method(_eec.EECTriangleOPELogLogId___ne__)
-    __eq__ = _swig_new_instance_method(_eec.EECTriangleOPELogLogId___eq__)
-    clear = _swig_new_instance_method(_eec.EECTriangleOPELogLogId_clear)
-    add = _swig_new_instance_method(_eec.EECTriangleOPELogLogId_add)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTriangleOPELogLogId self, int threads)"""
+        return _eec.EECTriangleOPELogLogId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTriangleOPELogLogId self, int hist_level=1) -> std::string"""
+        return _eec.EECTriangleOPELogLogId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTriangleOPELogLogId self, EECTriangleOPELogLogId rhs) -> bool"""
+        return _eec.EECTriangleOPELogLogId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTriangleOPELogLogId self, EECTriangleOPELogLogId rhs) -> bool"""
+        return _eec.EECTriangleOPELogLogId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTriangleOPELogLogId self)"""
+        return _eec.EECTriangleOPELogLogId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTriangleOPELogLogId self, EECTriangleOPELogLogId rhs)"""
+        return _eec.EECTriangleOPELogLogId_add(self, rhs)
 
     def __repr__(self):
-        return self.description().decode('utf-8')
-
-    __getstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPELogLogId___getstate_internal__)
-    __setstate_internal__ = _swig_new_instance_method(_eec.EECTriangleOPELogLogId___setstate_internal__)
-
-    _default_args = ((1, 1, 1),)
+        return self.description()
 
 
 # Register EECTriangleOPELogLogId in _eec:
 _eec.EECTriangleOPELogLogId_swigregister(EECTriangleOPELogLogId)
+
+class EECTopMassId(EECBase, EECHist1DId):
+    r"""Proxy of C++ fastjet::contrib::eec::EECTopMass< axis::id > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        r"""__init__(EECTopMassId self, unsigned int N, unsigned int nbins, arrayDouble2 axis_range={1e-5, 1}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=True, bool variance_bound=True, bool variance_bound_includes_overflows=True, bool use_general_eNc=False) -> EECTopMassId"""
+        _eec.EECTopMassId_swiginit(self, _eec.new_EECTopMassId(*args))
+    __swig_destroy__ = _eec.delete_EECTopMassId
+
+    def use_general_eNc(self):
+        r"""use_general_eNc(EECTopMassId self) -> bool"""
+        return _eec.EECTopMassId_use_general_eNc(self)
+
+    def set_use_general_eNc(self, general):
+        r"""set_use_general_eNc(EECTopMassId self, bool general)"""
+        return _eec.EECTopMassId_set_use_general_eNc(self, general)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTopMassId self, int threads)"""
+        return _eec.EECTopMassId_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTopMassId self, int hist_level=1) -> std::string"""
+        return _eec.EECTopMassId_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTopMassId self, EECTopMassId rhs) -> bool"""
+        return _eec.EECTopMassId___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTopMassId self, EECTopMassId rhs) -> bool"""
+        return _eec.EECTopMassId___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTopMassId self)"""
+        return _eec.EECTopMassId_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTopMassId self, EECTopMassId rhs)"""
+        return _eec.EECTopMassId_add(self, rhs)
+
+    def __repr__(self):
+        return self.description()
+
+
+# Register EECTopMassId in _eec:
+_eec.EECTopMassId_swigregister(EECTopMassId)
+
+class EECTopMassLog(EECBase, EECHist1DLog):
+    r"""Proxy of C++ fastjet::contrib::eec::EECTopMass< axis::log > class."""
+
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        r"""__init__(EECTopMassLog self, unsigned int N, unsigned int nbins, arrayDouble2 axis_range={1e-5, 1}, bool norm=True, vectorDouble weight_powers={1}, vectorUnsigned charge_powers={0}, fastjet::contrib::eec::ParticleWeight particle_weight=TransverseMomentum, fastjet::contrib::eec::PairwiseDistance pairwise_distance=DeltaR, int num_threads=-1, int omp_chunksize=10, long print_every=-10, bool check_degen=False, bool average_verts=False, bool track_covariance=True, bool variance_bound=True, bool variance_bound_includes_overflows=True, bool use_general_eNc=False) -> EECTopMassLog"""
+        _eec.EECTopMassLog_swiginit(self, _eec.new_EECTopMassLog(*args))
+    __swig_destroy__ = _eec.delete_EECTopMassLog
+
+    def use_general_eNc(self):
+        r"""use_general_eNc(EECTopMassLog self) -> bool"""
+        return _eec.EECTopMassLog_use_general_eNc(self)
+
+    def set_use_general_eNc(self, general):
+        r"""set_use_general_eNc(EECTopMassLog self, bool general)"""
+        return _eec.EECTopMassLog_set_use_general_eNc(self, general)
+
+    def set_num_threads(self, threads):
+        r"""set_num_threads(EECTopMassLog self, int threads)"""
+        return _eec.EECTopMassLog_set_num_threads(self, threads)
+
+    def description(self, hist_level=1):
+        r"""description(EECTopMassLog self, int hist_level=1) -> std::string"""
+        return _eec.EECTopMassLog_description(self, hist_level)
+
+    def __ne__(self, rhs):
+        r"""__ne__(EECTopMassLog self, EECTopMassLog rhs) -> bool"""
+        return _eec.EECTopMassLog___ne__(self, rhs)
+
+    def __eq__(self, rhs):
+        r"""__eq__(EECTopMassLog self, EECTopMassLog rhs) -> bool"""
+        return _eec.EECTopMassLog___eq__(self, rhs)
+
+    def clear(self):
+        r"""clear(EECTopMassLog self)"""
+        return _eec.EECTopMassLog_clear(self)
+
+    def add(self, rhs):
+        r"""add(EECTopMassLog self, EECTopMassLog rhs)"""
+        return _eec.EECTopMassLog_add(self, rhs)
+
+    def __repr__(self):
+        return self.description()
+
+
+# Register EECTopMassLog in _eec:
+_eec.EECTopMassLog_swigregister(EECTopMassLog)
 
 
 
